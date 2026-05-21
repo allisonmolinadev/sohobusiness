@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoHo Business — FAJ Invest</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Sherika não está disponível publicamente; uso Manrope como fallback (métricas próximas: geometric sans, terminais abertos) e JetBrains Mono para números/etiquetas -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================================
+     TOKENS — paleta e tipografia do manual SoHo Business v1.0
+     ========================================================= */
+  :root {
+    --ink:       #0A0A0A;
+    --ink-soft:  #111111;
+    --neutral:   #8E8E8E;
+    --neutral-2: #C9CBCA;
+    --paper:     #F5F7F6;
+    --line:      rgba(10,10,10,0.12);
+    --line-dk:   rgba(245,247,246,0.15);
+
+    --f-display: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+    --f-body:    'Space Grotesk', -apple-system, system-ui, sans-serif;
+    --f-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+    --max: 1440px;
+    --gutter: clamp(24px, 4vw, 64px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--f-body);
+    font-weight: 400;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  ::selection { background: var(--ink); color: var(--paper); }
+
+  /* Wordmark display type — uppercase, tight, heavy */
+  .display {
+    font-family: var(--f-display);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    text-wrap: balance;
+  }
+
+  /* Small utility label, mono, tracked */
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .rule { height: 1px; background: currentColor; opacity: 0.15; width: 100%; }
+
+  /* =========================================================
+     APP SHELL
+     ========================================================= */
+  #root { position: relative; }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* button */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 28px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+  }
+  .btn:hover { background: transparent; color: var(--ink); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--paper); }
+  .btn.on-dark { border-color: var(--paper); background: var(--paper); color: var(--ink); }
+  .btn.on-dark:hover { background: transparent; color: var(--paper); }
+  .btn .arrow { transition: transform 0.35s cubic-bezier(.2,.7,.2,1); }
+  .btn:hover .arrow { transform: translateX(6px); }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="components/Nav.jsx"></script>
+  <script type="text/babel" src="components/Hero.jsx"></script>
+  <script type="text/babel" src="components/Sobre.jsx"></script>
+  <script type="text/babel" src="components/Diferenciais.jsx"></script>
+  <script type="text/babel" src="components/Galeria.jsx"></script>
+  <script type="text/babel" src="components/Localizacao.jsx"></script>
+  <script type="text/babel" src="components/FichaTecnica.jsx"></script>
+  <script type="text/babel" src="components/Plantas.jsx"></script>
+  <script type="text/babel" src="components/FajInvest.jsx"></script>
+  <script type="text/babel" src="components/Footer.jsx"></script>
+  <script type="text/babel" src="components/Tweaks.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
