@@ -45,14 +45,20 @@ function Sobre() {
             }}>
               Agora, seu investimento e seu negócio podem compartilhar o mesmo espaço, com o selo de solidez e transparência da FAJ Invest.
             </p>
+            <p style={{
+              fontSize: 17, lineHeight: 1.7, fontWeight: 400,
+              color: '#333', maxWidth: 620,
+            }}>
+              O SoHo Business reúne salas comerciais, centro comercial integrado e espaços de convivência em um empreendimento completo, pensado para valorizar empresas, investidores e o fluxo de pessoas no dia a dia. Com hall amplo, estacionamento com valet, áreas externas de convivência e lojas integradas ao projeto, o empreendimento oferece mais praticidade, estrutura e movimento para quem trabalha, investe ou circula pelo espaço.
+            </p>
 
             <div style={{
               display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
               marginTop: 32, borderTop: '1px solid var(--line)',
             }} className="sobre-stats">
-              <Stat label="Área privativa" value="34 — 112m²" />
-              <Stat label="Pé-direito" value="3,20m" />
-              <Stat label="Vagas por sala" value="1 a 3" />
+              <Stat label="Área privativa" value="32 — 322,57m²" />
+              <Stat label="Unidades" value="454 salas" />
+              <Stat label="Pavimentos" value="21" />
             </div>
           </div>
         </div>

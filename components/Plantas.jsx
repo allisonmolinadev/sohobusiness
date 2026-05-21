@@ -1,10 +1,10 @@
 // Plantas e tipologias — selectable tabs, schematic floorplan placeholder
 function Plantas() {
   const tipos = [
-    { id: 't1', area: '34m²', nome: 'Essencial',   vagas: '1', config: 'Laje livre', desc: 'Formato enxuto, ideal para profissional liberal ou escritório individual.' },
-    { id: 't2', area: '52m²', nome: 'Studio',      vagas: '1', config: 'Laje livre + copa', desc: 'Versatilidade para escritório com equipe reduzida ou consultório com sala de espera.' },
-    { id: 't3', area: '74m²', nome: 'Dual',        vagas: '2', config: 'Duas salas + copa', desc: 'Sala principal com possibilidade de divisão — recebimento e trabalho independentes.' },
-    { id: 't4', area: '112m²', nome: 'Executivo',  vagas: '3', config: 'Modular', desc: 'Unidade dupla unida, atendendo equipes maiores, escritórios societários ou clínicas.' },
+    { id: 't1', area: '32m²', nome: 'Essencial',   vagas: '1', config: 'Laje livre', desc: 'Formato enxuto, ideal para profissional liberal ou escritório individual.' },
+    { id: 't2', area: '64m²', nome: 'Studio',      vagas: '1', config: 'Laje livre + copa', desc: 'Versatilidade para escritório com equipe reduzida ou consultório com sala de espera.' },
+    { id: 't3', area: '128m²', nome: 'Dual',       vagas: '2', config: 'Duas salas + copa', desc: 'Sala principal com possibilidade de divisão — recebimento e trabalho independentes.' },
+    { id: 't4', area: '322,57m²', nome: 'Executivo',  vagas: '3+', config: 'Modular', desc: 'Unidades unidas, atendendo equipes maiores, escritórios societários ou clínicas.' },
   ];
   const [active, setActive] = React.useState('t2');
   const cur = tipos.find(t => t.id === active);
