@@ -146,7 +146,7 @@ function HeroFullbleed() {
           {/* Left: wordmark + tagline + meta */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
             <div>
-              <img src="assets/soho-logo-white.png" alt="SoHo Business" style={{
+              <img src="assets/logotipo-soho-business-com-slogan.png" alt="SoHo Business" style={{
                 width: 'min(380px, 76vw)', height: 'auto',
                 display: 'block',
                 filter: 'drop-shadow(0 2px 24px rgba(0,0,0,0.35))',

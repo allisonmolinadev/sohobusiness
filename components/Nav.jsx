@@ -34,9 +34,9 @@ function Nav() {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         color: 'var(--paper)',
       }}>
-        <a href="#top" style={{ display: 'block', height: 46 }}>
-          <img src="assets/logotipo-soho-business-com-slogan.png" alt="SoHo Business"
-               style={{ height: 46, width: 'auto' }} />
+        <a href="#top" style={{ display: 'block', height: 28 }}>
+          <img src="assets/soho-logo-white.png" alt="SoHo Business"
+               style={{ height: 28, width: 'auto' }} />
         </a>
 
         <ul style={{
