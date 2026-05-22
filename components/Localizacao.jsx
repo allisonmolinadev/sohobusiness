@@ -1,12 +1,10 @@
-// Localização — embed do Google Maps + pontos de interesse
+// Localização — embed do Google Maps + pontos de interesse com link
 function Localizacao() {
-  const [activePoi, setActivePoi] = React.useState(0);
-
   const pois = [
-    { name: 'SoHo Business',     tipo: 'Empreendimento', dist: '—' },
-    { name: 'Shopping Iguatemi', tipo: 'Comércio',       dist: '~1,1 km' },
-    { name: 'Hotel Hyatt Place', tipo: 'Hotelaria',      dist: '~1,1 km' },
-    { name: 'Avenida JK',        tipo: 'Via arterial',   dist: '~4,6 km' },
+    { name: 'SoHo Business',     tipo: 'Empreendimento', dist: '—',       link: 'https://maps.app.goo.gl/RVznptrp7PKdsbAY6' },
+    { name: 'Shopping Iguatemi', tipo: 'Comércio',       dist: '~1,1 km', link: 'https://maps.app.goo.gl/vdt4FXs1iimpQwnP9' },
+    { name: 'Hotel Hyatt Place', tipo: 'Hotelaria',      dist: '~1,1 km', link: 'https://maps.app.goo.gl/UjwyZCLLtBLgA9ME8' },
+    { name: 'Avenida JK',        tipo: 'Via arterial',   dist: '~4,6 km', link: 'https://maps.app.goo.gl/zx6bmQLnuhAj5p3LA' },
   ];
 
   return (
@@ -87,7 +85,7 @@ function Localizacao() {
             }}
           />
 
-          {/* Lista de pontos de interesse */}
+          {/* Lista de pontos de interesse — cada item abre no Google Maps */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{
               padding: '20px 0', borderTop: '1px solid rgba(245,247,246,0.15)',
@@ -101,38 +99,39 @@ function Localizacao() {
               <span>{String(pois.length).padStart(2, '0')}</span>
             </div>
 
-            {pois.map((p, i) => {
-              const on = i === activePoi;
-              return (
-                <button key={i} onClick={() => setActivePoi(i)} style={{
-                  display: 'block', width: '100%',
-                  textAlign: 'left', cursor: 'pointer',
-                  background: on ? 'rgba(245,247,246,0.06)' : 'transparent',
-                  border: 'none',
-                  borderBottom: '1px solid rgba(245,247,246,0.1)',
-                  padding: '22px 20px 22px 0',
-                  color: 'var(--paper)', fontFamily: 'inherit',
-                  transition: 'background 0.3s',
+            {pois.map((p, i) => (
+              <a key={i} href={p.link} target="_blank" rel="noopener noreferrer"
+                 className="poi-link" style={{
+                   display: 'block', width: '100%',
+                   textDecoration: 'none',
+                   borderBottom: '1px solid rgba(245,247,246,0.1)',
+                   padding: '22px 20px 22px 0',
+                   color: 'var(--paper)',
+                 }}>
+                <div style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
                 }}>
-                  <div style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
-                  }}>
-                    <div>
-                      <div style={{
-                        fontFamily: 'var(--f-mono)', fontSize: 10,
-                        letterSpacing: '0.2em', textTransform: 'uppercase',
-                        color: 'var(--neutral)', marginBottom: 6,
-                      }}>— {String(i+1).padStart(2, '0')} · {p.tipo}</div>
-                      <div style={{ fontSize: 18, fontWeight: 500, letterSpacing: '-0.01em' }}>{p.name}</div>
-                    </div>
+                  <div>
                     <div style={{
-                      fontFamily: 'var(--f-mono)', fontSize: 11,
-                      color: on ? 'var(--paper)' : 'var(--neutral)',
-                    }}>{p.dist}</div>
+                      fontFamily: 'var(--f-mono)', fontSize: 10,
+                      letterSpacing: '0.2em', textTransform: 'uppercase',
+                      color: 'var(--neutral)', marginBottom: 6,
+                    }}>— {String(i+1).padStart(2, '0')} · {p.tipo}</div>
+                    <div style={{ fontSize: 18, fontWeight: 500, letterSpacing: '-0.01em' }}>{p.name}</div>
                   </div>
-                </button>
-              );
-            })}
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: 10,
+                    fontFamily: 'var(--f-mono)', fontSize: 11,
+                    color: 'var(--neutral)',
+                  }}>
+                    <span>{p.dist}</span>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" className="poi-arrow">
+                      <path d="M3.5 9.5L9.5 3.5M9.5 3.5H4.5M9.5 3.5V8.5" stroke="currentColor" strokeWidth="1.3"/>
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            ))}
 
             <div style={{
               marginTop: 32, padding: '20px 0',
@@ -152,6 +151,10 @@ function Localizacao() {
       </div>
 
       <style>{`
+        .poi-link { transition: background 0.3s; }
+        .poi-link:hover { background: rgba(245,247,246,0.06); }
+        .poi-link .poi-arrow { transition: transform 0.3s, color 0.3s; }
+        .poi-link:hover .poi-arrow { transform: translate(2px, -2px); color: var(--paper); }
         @media (max-width: 980px) {
           .loc-grid { grid-template-columns: 1fr !important; }
           .loc-intro { grid-template-columns: 1fr !important; gap: 24px !important; }
