@@ -32,14 +32,20 @@ function FichaTecnica() {
           gap: 'clamp(40px, 6vw, 120px)',
           marginTop: 80,
         }} className="ficha-grid reveal">
-          <h2 className="display" style={{
-            fontSize: 'clamp(40px, 5vw, 80px)', fontWeight: 400,
-          }}>
-            Os números<br/>
-            <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>
-              do projeto.
-            </em>
-          </h2>
+          <div>
+            <img src="assets/soho-logo-white.png" alt="SoHo Business" style={{
+              width: 'min(260px, 70%)', height: 'auto', display: 'block',
+              marginBottom: 40,
+            }} />
+            <h2 className="display" style={{
+              fontSize: 'clamp(40px, 5vw, 80px)', fontWeight: 400,
+            }}>
+              Os números<br/>
+              <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>
+                do projeto.
+              </em>
+            </h2>
+          </div>
 
           <div style={{
             display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
