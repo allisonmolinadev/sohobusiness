@@ -84,7 +84,7 @@ function Footer() {
               { label: 'Sobre', href: '#empreendimento' },
               { label: 'Diferenciais', href: '#diferenciais' },
               { label: 'Galeria', href: '#galeria' },
-              { label: 'Plantas', href: '#plantas' },
+              { label: 'Tipologias', href: '#plantas' },
             ]} />
             <FCol title="Institucional" items={[
               { label: 'FAJ Invest', href: '#faj' },

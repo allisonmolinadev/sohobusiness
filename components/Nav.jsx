@@ -15,7 +15,7 @@ function Nav() {
     { href: '#galeria',         label: 'Galeria' },
     { href: '#localizacao',     label: 'Localização' },
     { href: '#ficha',           label: 'Ficha técnica' },
-    { href: '#plantas',         label: 'Plantas' },
+    { href: '#plantas',         label: 'Tipologias' },
     { href: '#faj',             label: 'FAJ Invest' },
   ];
 
