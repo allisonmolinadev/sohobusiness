@@ -211,11 +211,11 @@ function Diferenciais() {
   );
 }
 
-/* Fachada com leve inclinação 3D que segue o cursor */
+/* Fachada que desliza suavemente seguindo o cursor */
 function FachadaInterativa() {
   const ref = React.useRef(null);
   const reduced = React.useRef(false);
-  const [tilt, setTilt] = React.useState({ rx: 0, ry: 0, active: false });
+  const [pos, setPos] = React.useState({ tx: 0, ty: 0, active: false });
 
   React.useEffect(() => {
     reduced.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -228,27 +228,24 @@ function FachadaInterativa() {
     const r = el.getBoundingClientRect();
     const px = (e.clientX - r.left) / r.width;   // 0..1
     const py = (e.clientY - r.top) / r.height;   // 0..1
-    const max = 9; // graus máximos
-    setTilt({
-      rx: (0.5 - py) * 2 * max,
-      ry: (px - 0.5) * 2 * max,
+    const max = 16; // px máximos de deslocamento
+    setPos({
+      tx: (px - 0.5) * 2 * max,
+      ty: (py - 0.5) * 2 * max,
       active: true,
     });
   };
-  const onLeave = () => setTilt({ rx: 0, ry: 0, active: false });
+  const onLeave = () => setPos({ tx: 0, ty: 0, active: false });
 
   return (
-    <div ref={ref} onMouseMove={onMove} onMouseLeave={onLeave}
-      style={{ perspective: 1000 }}>
+    <div ref={ref} onMouseMove={onMove} onMouseLeave={onLeave}>
       <img src="assets/fachada-estilizada.png" alt="Fachada do empreendimento"
         style={{
           width: '100%', height: 'auto', display: 'block',
-          transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg) scale(${tilt.active ? 1.05 : 1})`,
-          transition: tilt.active
-            ? 'transform 0.12s ease-out, filter 0.3s ease'
-            : 'transform 0.7s cubic-bezier(.2,.7,.2,1), filter 0.5s ease',
-          filter: tilt.active ? 'brightness(1.06)' : 'brightness(1)',
-          transformStyle: 'preserve-3d',
+          transform: `translate(${pos.tx}px, ${pos.ty}px)`,
+          transition: pos.active
+            ? 'transform 0.2s ease-out'
+            : 'transform 0.7s cubic-bezier(.2,.7,.2,1)',
           willChange: 'transform',
         }} />
     </div>
