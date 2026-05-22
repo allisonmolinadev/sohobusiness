@@ -122,17 +122,6 @@ function HeroFullbleed() {
         background: 'linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.15) 28%, rgba(10,10,10,0.05) 55%, rgba(10,10,10,0.75) 100%)',
       }} />
 
-      {/* Top eyebrow — "LANÇAMENTO" */}
-      <div style={{
-        position: 'absolute', top: 120, left: 0, right: 0,
-        display: 'flex', justifyContent: 'center',
-        fontFamily: 'var(--f-mono)', fontSize: 12,
-        letterSpacing: '0.32em', textTransform: 'uppercase',
-        color: 'var(--paper)',
-      }}>
-        Lançamento&nbsp;&nbsp;·&nbsp;&nbsp;<span style={{ color: 'var(--neutral-2)' }}>FAJ Invest 2026</span>
-      </div>
-
       {/* Bottom bar — logo + meta + CTA */}
       <div style={{
         position: 'absolute', left: 0, right: 0, bottom: 0,
@@ -164,15 +153,6 @@ function HeroFullbleed() {
           <a href="#empreendimento" className="btn on-dark">
             Conheça o empreendimento <span className="arrow">→</span>
           </a>
-        </div>
-        <div style={{
-          maxWidth: 'var(--max)', margin: '28px auto 0',
-          display: 'flex', justifyContent: 'center',
-          fontFamily: 'var(--f-mono)', fontSize: 10,
-          letterSpacing: '0.28em', textTransform: 'uppercase',
-          color: 'var(--neutral-2)', opacity: 0.7,
-        }}>
-          ↓ Role para descobrir
         </div>
       </div>
     </div>
