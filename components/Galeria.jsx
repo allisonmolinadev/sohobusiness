@@ -1,4 +1,4 @@
-// Galeria — carrossel editorial, 2 imagens por vez
+// Galeria — carrossel editorial, 1 imagem alinhada ao conteúdo
 function Galeria() {
   const images = [
     { src: 'assets/drone-sunset.jpg',    label: 'Vista aérea',        caption: 'Implantação ao pôr do sol' },
@@ -21,21 +21,19 @@ function Galeria() {
     { src: 'assets/sala-dentista.jpg',   label: 'Sala — saúde',       caption: 'Configuração para consultório' },
   ];
 
-  // STEP = quantas imagens são exibidas/avançadas por vez
-  const STEP = 2;
   const [idx, setIdx] = React.useState(0);
   const [autoplay, setAutoplay] = React.useState(false);
   const carouselRef = React.useRef(null);
   const thumbsRef = React.useRef(null);
   const touchRef = React.useRef({ x: 0, dx: 0 });
 
-  const next = React.useCallback(() => setIdx(i => (i + STEP) % images.length), [images.length]);
-  const prev = React.useCallback(() => setIdx(i => (i - STEP + images.length) % images.length), [images.length]);
+  const next = React.useCallback(() => setIdx(i => (i + 1) % images.length), [images.length]);
+  const prev = React.useCallback(() => setIdx(i => (i - 1 + images.length) % images.length), [images.length]);
 
   // Autoplay (pausa no hover)
   React.useEffect(() => {
     if (!autoplay) return;
-    const id = setInterval(next, 6000);
+    const id = setInterval(next, 5000);
     return () => clearInterval(id);
   }, [autoplay, next]);
 
@@ -76,8 +74,7 @@ function Galeria() {
     }
   };
 
-  // Índices das 2 imagens visíveis
-  const visible = Array.from({ length: STEP }, (_, k) => (idx + k) % images.length);
+  const cur = images[idx];
   const pad = (n) => String(n).padStart(2, '0');
 
   return (
@@ -126,93 +123,92 @@ function Galeria() {
             letterSpacing: '0.18em', textTransform: 'uppercase',
             color: 'var(--neutral-2)',
           }}>
-            {pad(visible[0] + 1)}–{pad(visible[STEP - 1] + 1)} <span style={{ opacity: 0.5 }}>/ {pad(images.length)}</span>
+            {pad(idx + 1)} <span style={{ opacity: 0.5 }}>/ {pad(images.length)}</span>
           </div>
         </div>
       </div>
 
-      {/* Visualizador — 2 imagens lado a lado, sem corte (contain) */}
-      <div style={{ position: 'relative', marginTop: 72 }}
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-      >
-        {/* Barra de progresso */}
-        <div style={{
-          height: 2, background: 'rgba(245,247,246,0.12)',
-        }}>
+      {/* Visualizador — 1 imagem, alinhada à largura do conteúdo */}
+      <div style={{
+        maxWidth: 'var(--max)', margin: '72px auto 0',
+        padding: '0 var(--gutter)', width: '100%',
+      }}>
+        <div style={{ position: 'relative', overflow: 'hidden' }}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          {/* Imagem — preenche 100% do quadro */}
           <div style={{
-            height: '100%',
-            width: `${((idx + STEP) / images.length) * 100}%`,
-            background: 'var(--paper)',
-            transition: 'width 0.5s cubic-bezier(.2,.7,.2,1)',
-          }} />
-        </div>
+            position: 'relative',
+            width: '100%',
+            aspectRatio: '16 / 9',
+            background: '#0A0A0A',
+          }}>
+            {images.map((im, i) => (
+              <div key={i} style={{
+                position: 'absolute', inset: 0,
+                background: `url('${im.src}') center/cover no-repeat`,
+                opacity: i === idx ? 1 : 0,
+                transform: `scale(${i === idx ? 1 : 1.04})`,
+                transition: 'opacity 1s cubic-bezier(.2,.7,.2,1), transform 1.4s cubic-bezier(.2,.7,.2,1)',
+              }} />
+            ))}
 
-        {/* Par de imagens */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 4,
-        }} className="gal-pair">
-          {visible.map((i, k) => {
-            const im = images[i];
-            return (
-              <div key={`${idx}-${k}`} style={{
-                position: 'relative',
-                aspectRatio: '16 / 10',
-                background: '#0A0A0A',
-                overflow: 'hidden',
-              }} className="gal-slide">
-                <img src={im.src} alt={im.caption} style={{
-                  position: 'absolute', inset: 0,
-                  width: '100%', height: '100%',
-                  objectFit: 'contain',
-                }} />
-                {/* Vinheta para legibilidade da legenda */}
-                <div style={{
-                  position: 'absolute', inset: 0,
-                  background: 'linear-gradient(180deg, rgba(10,10,10,0) 58%, rgba(10,10,10,0.65) 100%)',
-                  pointerEvents: 'none',
-                }} />
-                {/* Legenda */}
-                <div style={{
-                  position: 'absolute', left: 24, right: 24, bottom: 22,
-                  color: 'var(--paper)',
-                }}>
-                  <div style={{
-                    fontFamily: 'var(--f-mono)', fontSize: 10,
-                    letterSpacing: '0.22em', textTransform: 'uppercase',
-                    color: 'var(--neutral-2)', marginBottom: 8,
-                  }}>— {im.label}</div>
-                  <div style={{
-                    fontFamily: 'var(--f-display)',
-                    fontSize: 'clamp(15px, 1.5vw, 20px)',
-                    fontWeight: 400, lineHeight: 1.3,
-                    letterSpacing: '-0.01em',
-                  }}>{im.caption}</div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+            {/* Vinheta */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(180deg, rgba(10,10,10,0) 58%, rgba(10,10,10,0.6) 100%)',
+              pointerEvents: 'none',
+            }} />
 
-        {/* Setas de navegação */}
-        <div style={{
-          display: 'flex', justifyContent: 'flex-end', gap: 12,
-          maxWidth: 'var(--max)', margin: '20px auto 0',
-          padding: '0 var(--gutter)',
-        }}>
-          <ArrowBtn onClick={prev} direction="prev" />
-          <ArrowBtn onClick={next} direction="next" />
+            {/* Legenda */}
+            <div style={{
+              position: 'absolute', left: 32, bottom: 32,
+              maxWidth: 520, color: 'var(--paper)',
+            }} key={idx} className="cap-fade">
+              <div style={{
+                fontFamily: 'var(--f-mono)', fontSize: 10,
+                letterSpacing: '0.22em', textTransform: 'uppercase',
+                color: 'var(--neutral-2)', marginBottom: 10,
+              }}>— {cur.label}</div>
+              <div style={{
+                fontFamily: 'var(--f-display)',
+                fontSize: 'clamp(18px, 2vw, 24px)',
+                fontWeight: 400, lineHeight: 1.3,
+                letterSpacing: '-0.01em',
+              }}>{cur.caption}</div>
+            </div>
+
+            {/* Setas */}
+            <div style={{
+              position: 'absolute', right: 32, bottom: 32,
+              display: 'flex', gap: 12,
+            }}>
+              <ArrowBtn onClick={prev} direction="prev" />
+              <ArrowBtn onClick={next} direction="next" />
+            </div>
+
+            {/* Barra de progresso */}
+            <div style={{
+              position: 'absolute', top: 0, left: 0, right: 0,
+              height: 2, background: 'rgba(245,247,246,0.12)',
+            }}>
+              <div style={{
+                height: '100%',
+                width: `${((idx + 1) / images.length) * 100}%`,
+                background: 'var(--paper)',
+                transition: 'width 0.5s cubic-bezier(.2,.7,.2,1)',
+              }} />
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Miniaturas */}
       <div style={{
-        marginTop: 8,
-        padding: '0 var(--gutter)',
-        maxWidth: 'var(--max)', margin: '8px auto 0',
+        maxWidth: 'var(--max)', margin: '16px auto 0',
+        padding: '0 var(--gutter)', width: '100%',
       }}>
         <div ref={thumbsRef} style={{
           display: 'flex', gap: 8,
@@ -221,9 +217,9 @@ function Galeria() {
           paddingBottom: 4,
         }} className="thumb-strip">
           {images.map((im, i) => {
-            const on = visible.includes(i);
+            const on = i === idx;
             return (
-              <button key={i} onClick={() => setIdx(i - (i % STEP))} style={{
+              <button key={i} onClick={() => setIdx(i)} style={{
                 flex: '0 0 auto',
                 width: 108, height: 72,
                 padding: 0, cursor: 'pointer',
@@ -259,15 +255,12 @@ function Galeria() {
 
       <style>{`
         .thumb-strip::-webkit-scrollbar { display: none; }
-        .gal-slide {
-          animation: gal-fade-in 0.8s cubic-bezier(.2,.7,.2,1);
+        .cap-fade {
+          animation: cap-fade-in 0.8s cubic-bezier(.2,.7,.2,1);
         }
-        @keyframes gal-fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @media (max-width: 760px) {
-          .gal-pair { grid-template-columns: 1fr !important; }
+        @keyframes cap-fade-in {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </section>
