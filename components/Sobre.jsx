@@ -71,7 +71,8 @@ function Sobre() {
                     display: 'block',
                     fontFamily: 'var(--f-body)',
                     fontSize: 13, fontWeight: 300,
-                    letterSpacing: '0.01em',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
                     color: 'var(--neutral)',
                     margin: '6px 0',
                   }}>
