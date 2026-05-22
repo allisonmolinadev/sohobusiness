@@ -104,10 +104,16 @@ function Footer() {
         `}</style>
       </footer>
 
-      {/* Assinatura FAJ Invest — logo de fora a fora */}
-      <div style={{ background: 'var(--ink)', width: '100%', lineHeight: 0 }}>
+      {/* Assinatura FAJ Invest — logo gigante cortado de fora a fora */}
+      <div style={{
+        background: 'var(--ink)',
+        overflow: 'hidden',
+        width: '100%',
+        lineHeight: 0,
+        height: 'clamp(88px, 15vw, 300px)',
+      }}>
         <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest"
-             style={{ width: '100%', height: 'auto', display: 'block' }} />
+             style={{ width: '118%', marginLeft: '-9%', display: 'block' }} />
       </div>
     </React.Fragment>
   );
