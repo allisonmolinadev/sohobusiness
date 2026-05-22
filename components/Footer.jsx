@@ -6,7 +6,7 @@ function Footer() {
       <section id="contato" style={{
         background: 'var(--paper)',
         color: 'var(--ink)',
-        padding: '140px var(--gutter) 120px',
+        padding: '140px var(--gutter) 0',
         borderTop: '1px solid var(--line)',
       }}>
         <div style={{ maxWidth: 'var(--max)', margin: '0 auto', width: '100%' }}>
@@ -31,9 +31,10 @@ function Footer() {
           }} className="cta-grid reveal">
             <img src="assets/fachada-form.png" alt="Fachada do SoHo Business" style={{
               width: '100%', height: 'auto', display: 'block',
+              alignSelf: 'end',
             }} />
 
-            <div>
+            <div style={{ paddingBottom: 'clamp(80px, 8vw, 120px)' }}>
               <p style={{
                 fontSize: 16, lineHeight: 1.65, color: '#333',
                 marginBottom: 32, maxWidth: 420,
