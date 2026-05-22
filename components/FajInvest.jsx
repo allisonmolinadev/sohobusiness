@@ -32,16 +32,12 @@ function FajInvest() {
               width: 'min(340px, 80%)', height: 'auto', display: 'block',
             }} />
             <div style={{ marginTop: 36 }}>
-              <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 10 }}>
+              <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 14 }}>
                 — Realização
               </div>
-              <div style={{
-                fontFamily: 'var(--f-display)',
-                fontSize: 22, fontWeight: 500, letterSpacing: '-0.01em',
-                color: 'var(--paper)',
-              }}>
-                FAJ Empreendimentos
-              </div>
+              <img src="assets/logo-faj-empreendimentos-branco.png" alt="FAJ Empreendimentos" style={{
+                width: 'min(200px, 62%)', height: 'auto', display: 'block',
+              }} />
             </div>
           </div>
 
