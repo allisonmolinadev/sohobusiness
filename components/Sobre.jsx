@@ -64,7 +64,7 @@ function Sobre() {
               display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
               marginTop: 32, borderTop: '1px solid var(--line)',
             }} className="sobre-stats">
-              <Stat label="Salas comerciais a partir de" value="32m² até 1080m²" first />
+              <Stat label="Salas comerciais a partir de" value="32m² com opção de expansão até 1080m²" first />
               <Stat label="Unidades" value="415 salas" />
               <Stat label="Pavimentos" value="21" />
             </div>
