@@ -65,15 +65,17 @@ function FajInvest() {
               SoHo Business é parte de um portfólio pensado para empresários e investidores que valorizam localização, qualidade construtiva e decisões sólidas.
             </p>
 
-            <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-              marginTop: 56, gap: 0,
-              borderTop: '1px solid rgba(245,247,246,0.12)',
-            }} className="faj-stats">
-              <FajStat label="Empreendimentos" value="12" />
-              <FajStat label="VGV histórico" value="R$ 1,8bi" />
-              <FajStat label="Anos de mercado" value="18" />
-            </div>
+            <a href="https://fajinvest.com.br/" target="_blank" rel="noopener noreferrer"
+               className="btn ghost" style={{
+                 marginTop: 48,
+                 color: 'var(--paper)',
+                 borderColor: 'rgba(245,247,246,0.35)',
+               }}>
+              Conheça mais sobre a
+              <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest"
+                   style={{ height: 14, width: 'auto' }} />
+              <span className="arrow">→</span>
+            </a>
           </div>
         </div>
       </div>
@@ -81,26 +83,9 @@ function FajInvest() {
       <style>{`
         @media (max-width: 860px) {
           .faj-grid { grid-template-columns: 1fr !important; }
-          .faj-stats { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
-  );
-}
-
-function FajStat({ label, value }) {
-  return (
-    <div style={{
-      padding: '28px 24px',
-      borderRight: '1px solid rgba(245,247,246,0.12)',
-    }}>
-      <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 10 }}>{label}</div>
-      <div style={{
-        fontFamily: 'var(--f-display)',
-        fontSize: 32, fontWeight: 500, letterSpacing: '-0.02em',
-        color: 'var(--paper)',
-      }}>{value}</div>
-    </div>
   );
 }
 
