@@ -48,7 +48,7 @@ function Nav() {
               <a href={l.href} style={{
                 color: 'var(--paper)',
                 textDecoration: 'none',
-                fontFamily: 'var(--f-mono)',
+                fontFamily: 'var(--f-body)',
                 fontSize: 11,
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
@@ -63,7 +63,7 @@ function Nav() {
         </ul>
 
         <a href="#contato" style={{
-          fontFamily: 'var(--f-mono)',
+          fontFamily: 'var(--f-body)',
           fontSize: 11,
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
