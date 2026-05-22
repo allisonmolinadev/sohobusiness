@@ -129,7 +129,7 @@ function Diferenciais() {
             </em>
             &nbsp;no tempo.
           </h2>
-          <img src="assets/fachada-recorte.png" alt="Fachada do empreendimento"
+          <img src="assets/fachada-estilizada.png" alt="Fachada do empreendimento"
                style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
 
