@@ -84,7 +84,7 @@ function HeroEditorial() {
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
           }}>
-            — 21 pavimentos · 454 unidades
+            — 21 pavimentos · 415 unidades
           </div>
         </div>
       </div>
@@ -155,7 +155,7 @@ function HeroFullbleed() {
 
             <div style={{ display: 'flex', gap: 32, alignItems: 'baseline', flexWrap: 'wrap' }}>
               <MiniMeta k="Pavimentos" v="21" />
-              <MiniMeta k="Unidades" v="454" />
+              <MiniMeta k="Unidades" v="415" />
               <MiniMeta k="Tipologias" v="32 — 322,57m²" />
             </div>
           </div>
@@ -259,7 +259,7 @@ function HeroTypographic() {
             </div>
             <div style={{ marginBottom: 28 }}>
               <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 6 }}>Unidades</div>
-              <div style={{ fontSize: 28, fontWeight: 500, color: 'var(--paper)' }}>454</div>
+              <div style={{ fontSize: 28, fontWeight: 500, color: 'var(--paper)' }}>415</div>
             </div>
             <div>
               <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 6 }}>Lançamento</div>
@@ -283,7 +283,7 @@ function MetaStrip() {
   const items = [
     { k: 'Tipologia',   v: 'Salas comerciais' },
     { k: 'Pavimentos',  v: '21' },
-    { k: 'Unidades',    v: '454 salas' },
+    { k: 'Unidades',    v: '415 salas' },
     { k: 'Localização', v: 'São José do Rio Preto — SP' },
     { k: 'Entrega',     v: 'Q4 2028' },
   ];

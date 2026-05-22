@@ -64,7 +64,7 @@ function Sobre() {
               marginTop: 32, borderTop: '1px solid var(--line)',
             }} className="sobre-stats">
               <Stat label="Área privativa" value="32 — 322,57m²" first />
-              <Stat label="Unidades" value="454 salas" />
+              <Stat label="Unidades" value="415 salas" />
               <Stat label="Pavimentos" value="21" />
             </div>
           </div>
