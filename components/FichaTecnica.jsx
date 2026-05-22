@@ -1,14 +1,12 @@
 // Ficha Técnica — institutional spec sheet, editorial dark layout
 function FichaTecnica() {
   const specs = [
-    { k: 'Área do terreno',         v: '5.274,52', un: 'm²' },
-    { k: 'Área construída total',   v: '43.197,35', un: 'm²' },
-    { k: 'Tipologia',               v: 'Salas comerciais', un: '' },
-    { k: 'Unidades',                v: '454', un: 'unidades' },
-    { k: 'Pavimentos',              v: '21', un: 'pavimentos' },
-    { k: 'Subsolos',                v: '4', un: 'subsolos' },
-    { k: 'Torres',                  v: '01', un: 'torre' },
-    { k: 'Elevadores',              v: '07', un: 'elevadores' },
+    { k: 'Área do terreno',   v: '5.274,52',  un: 'm²' },
+    { k: 'Pavimentos',        v: '21',        un: 'pavimentos + 4 subsolos' },
+    { k: 'Área construída',   v: '44.443,66', un: 'm²' },
+    { k: 'Total de unidades', v: '415',       un: 'salas comerciais' },
+    { k: 'Torres',            v: '1',         un: 'torre exclusiva' },
+    { k: 'Total de vagas',    v: '495',       un: 'vagas de estacionamento' },
   ];
 
   return (
@@ -45,6 +43,12 @@ function FichaTecnica() {
                 do projeto.
               </em>
             </h2>
+            <p style={{
+              fontSize: 16, lineHeight: 1.7, fontWeight: 300,
+              color: 'var(--neutral-2)', marginTop: 32, maxWidth: 460,
+            }}>
+              O SoHo Business oferece flexibilidade para diferentes perfis de negócios. Desde profissionais autônomos até empresas consolidadas, o projeto atende com eficiência e adaptabilidade.
+            </p>
           </div>
 
           <div style={{
