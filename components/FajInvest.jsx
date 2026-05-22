@@ -28,22 +28,21 @@ function FajInvest() {
           marginTop: 80, alignItems: 'start',
         }} className="faj-grid reveal">
           <div>
-            <div style={{
-              fontFamily: 'var(--f-display)',
-              fontSize: 'clamp(64px, 9vw, 132px)',
-              fontWeight: 800, letterSpacing: '-0.055em',
-              lineHeight: 0.9,
-            }}>
-              FAJ<br/>INVEST
+            <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest" style={{
+              width: 'min(340px, 80%)', height: 'auto', display: 'block',
+            }} />
+            <div style={{ marginTop: 36 }}>
+              <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 10 }}>
+                — Realização
+              </div>
+              <div style={{
+                fontFamily: 'var(--f-display)',
+                fontSize: 22, fontWeight: 500, letterSpacing: '-0.01em',
+                color: 'var(--paper)',
+              }}>
+                FAJ Empreendimentos
+              </div>
             </div>
-            <p style={{
-              fontFamily: 'var(--f-mono)', fontSize: 11,
-              letterSpacing: '0.2em', textTransform: 'uppercase',
-              color: 'var(--neutral)',
-              marginTop: 24,
-            }}>
-              — Desenvolvimento imobiliário
-            </p>
           </div>
 
           <div style={{ paddingTop: 8 }}>
@@ -51,9 +50,9 @@ function FajInvest() {
               fontSize: 'clamp(32px, 3.5vw, 56px)',
               fontWeight: 400, marginBottom: 36,
             }}>
-              Construímos produtos que<br/>
+              Construímos ativos que<br/>
               <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>
-                envelhecem bem.
+                atravessam o tempo.
               </em>
             </h3>
 
@@ -61,13 +60,13 @@ function FajInvest() {
               fontSize: 17, lineHeight: 1.7, color: 'var(--neutral-2)',
               marginBottom: 24, fontWeight: 300,
             }}>
-              A FAJ Invest atua no desenvolvimento e gestão de empreendimentos imobiliários com foco em produtos que geram valor consistente para o investidor — desde a concepção do projeto até a entrega das chaves.
+              A FAJ Invest atua no desenvolvimento de empreendimentos imobiliários com estratégia, consistência e visão de longo prazo.
             </p>
             <p style={{
               fontSize: 17, lineHeight: 1.7, color: 'var(--neutral-2)',
               fontWeight: 300,
             }}>
-              SoHo Business é parte de um portfólio pensado para investidores que priorizam permanência, localização e qualidade construtiva.
+              SoHo Business é parte de um portfólio pensado para empresários e investidores que valorizam localização, qualidade construtiva e decisões sólidas.
             </p>
 
             <div style={{
