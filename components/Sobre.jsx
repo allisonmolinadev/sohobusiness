@@ -18,12 +18,19 @@ function Sobre() {
         }} className="sobre-grid reveal">
           <div>
             <h2 className="display" style={{
-              fontSize: 'clamp(44px, 5.5vw, 88px)',
+              fontSize: 'clamp(34px, 3.6vw, 58px)',
               fontWeight: 400,
             }}>
               Seu negócio<br/>
               e seu <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral)' }}>investimento.</em>
             </h2>
+            <div style={{
+              marginTop: 48,
+              width: '100%',
+              aspectRatio: '4 / 5',
+              background: "url('assets/fachada-2.jpg') center/cover no-repeat",
+              border: '1px solid var(--line)',
+            }} />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 28, paddingTop: 16 }}>
