@@ -1,10 +1,15 @@
 // Localização — embed do Google Maps + pontos de interesse com link
 function Localizacao() {
+  // Rota do Google Maps a partir do SoHo Business até cada destino
+  const ORIGEM = 'Salas comerciais FAJ';
+  const rota = (destino) =>
+    `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(ORIGEM)}&destination=${encodeURIComponent(destino)}`;
+
   const pois = [
     { name: 'SoHo Business',     tipo: 'Empreendimento', dist: '—',       link: 'https://maps.app.goo.gl/RVznptrp7PKdsbAY6' },
-    { name: 'Shopping Iguatemi', tipo: 'Comércio',       dist: '~1,1 km', link: 'https://maps.app.goo.gl/vdt4FXs1iimpQwnP9' },
-    { name: 'Hotel Hyatt Place', tipo: 'Hotelaria',      dist: '~1,1 km', link: 'https://maps.app.goo.gl/UjwyZCLLtBLgA9ME8' },
-    { name: 'Avenida JK',        tipo: 'Via arterial',   dist: '~4,6 km', link: 'https://maps.app.goo.gl/zx6bmQLnuhAj5p3LA' },
+    { name: 'Shopping Iguatemi', tipo: 'Comércio',       dist: '~1,1 km', link: rota('Shopping Iguatemi São José do Rio Preto') },
+    { name: 'Hotel Hyatt Place', tipo: 'Hotelaria',      dist: '~1,1 km', link: rota('Hyatt Place São José do Rio Preto') },
+    { name: 'Avenida JK',        tipo: 'Via arterial',   dist: '~4,6 km', link: rota('JK Avenue São José do Rio Preto') },
   ];
 
   return (
