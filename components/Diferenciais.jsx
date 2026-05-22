@@ -129,12 +129,8 @@ function Diferenciais() {
             </em>
             &nbsp;no tempo.
           </h2>
-          <div style={{
-            width: '100%',
-            aspectRatio: '4 / 3',
-            background: "url('assets/fachada-principal.jpg') center/cover no-repeat",
-            border: '1px solid rgba(245,247,246,0.12)',
-          }} />
+          <img src="assets/fachada-recorte.png" alt="Fachada do empreendimento"
+               style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
 
         <div style={{
