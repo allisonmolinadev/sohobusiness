@@ -99,43 +99,54 @@ function Diferenciais() {
     }}>
       <div style={{ maxWidth: 'var(--max)', margin: '0 auto', width: '100%' }}>
         <div style={{
-          display: 'flex', alignItems: 'center', gap: 24,
-          borderTop: '1px solid rgba(245,247,246,0.15)',
-          paddingTop: 24,
-        }} className="reveal">
-          <span style={{
-            fontFamily: 'var(--f-mono)', fontSize: 11,
-            letterSpacing: '0.2em', color: 'var(--neutral)',
-          }}>02</span>
-          <span className="eyebrow" style={{ color: 'var(--paper)' }}>
-            — Diferenciais e amenidades
-          </span>
-        </div>
-
-        <div style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 1.15fr) minmax(0, 0.85fr)',
           gap: 'clamp(32px, 5vw, 88px)',
-          marginTop: 72,
-          alignItems: 'center',
+          alignItems: 'stretch',
         }} className="dif-head reveal">
-          <h2 className="display" style={{
-            fontSize: 'clamp(40px, 4.8vw, 84px)',
-            fontWeight: 400,
+          {/* Esquerda — etiqueta + título */}
+          <div style={{
+            display: 'flex', flexDirection: 'column',
+            paddingBottom: 'clamp(48px, 7vw, 104px)',
           }}>
-            Atributos que<br/>
-            <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>
-              valorizam o ativo
-            </em>
-            &nbsp;no tempo.
-          </h2>
-          <FachadaInterativa />
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 24,
+              borderTop: '1px solid rgba(245,247,246,0.15)',
+              paddingTop: 24,
+            }}>
+              <span style={{
+                fontFamily: 'var(--f-mono)', fontSize: 11,
+                letterSpacing: '0.2em', color: 'var(--neutral)',
+              }}>02</span>
+              <span className="eyebrow" style={{ color: 'var(--paper)' }}>
+                — Diferenciais e amenidades
+              </span>
+            </div>
+            <h2 className="display" style={{
+              fontSize: 'clamp(40px, 4.8vw, 84px)',
+              fontWeight: 400,
+              marginTop: 'clamp(56px, 8vw, 120px)',
+            }}>
+              Atributos que<br/>
+              <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>
+                valorizam o ativo
+              </em>
+              &nbsp;no tempo.
+            </h2>
+          </div>
+
+          {/* Direita — fachada alinhada de ponta a ponta */}
+          <img src="assets/fachada-estilizada.png" alt="Fachada do empreendimento" style={{
+            width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center',
+            display: 'block',
+          }} />
         </div>
 
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          marginTop: 96,
+          marginTop: 0,
           borderTop: '1px solid rgba(245,247,246,0.12)',
         }} className="dif-grid reveal">
           {items.map((it, i) => (
@@ -199,6 +210,7 @@ function Diferenciais() {
         }
         @media (max-width: 980px) {
           .dif-head { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .dif-head > img { height: auto !important; aspect-ratio: 16 / 11; }
           .dif-grid { grid-template-columns: 1fr !important; }
           .dif-cell {
             border-right: none !important;
@@ -211,46 +223,4 @@ function Diferenciais() {
   );
 }
 
-/* Fachada que desliza suavemente seguindo o cursor */
-function FachadaInterativa() {
-  const ref = React.useRef(null);
-  const reduced = React.useRef(false);
-  const [pos, setPos] = React.useState({ tx: 0, ty: 0, active: false });
-
-  React.useEffect(() => {
-    reduced.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }, []);
-
-  const onMove = (e) => {
-    if (reduced.current) return;
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width;   // 0..1
-    const py = (e.clientY - r.top) / r.height;   // 0..1
-    const max = 16; // px máximos de deslocamento
-    setPos({
-      tx: (px - 0.5) * 2 * max,
-      ty: (py - 0.5) * 2 * max,
-      active: true,
-    });
-  };
-  const onLeave = () => setPos({ tx: 0, ty: 0, active: false });
-
-  return (
-    <div ref={ref} onMouseMove={onMove} onMouseLeave={onLeave}>
-      <img src="assets/fachada-estilizada.png" alt="Fachada do empreendimento"
-        style={{
-          width: '100%', height: 'auto', display: 'block',
-          transform: `translate(${pos.tx}px, ${pos.ty}px)`,
-          transition: pos.active
-            ? 'transform 0.2s ease-out'
-            : 'transform 0.7s cubic-bezier(.2,.7,.2,1)',
-          willChange: 'transform',
-        }} />
-    </div>
-  );
-}
-
 window.Diferenciais = Diferenciais;
-window.FachadaInterativa = FachadaInterativa;
