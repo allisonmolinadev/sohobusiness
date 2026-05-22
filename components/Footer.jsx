@@ -113,7 +113,7 @@ function Footer() {
         height: 'clamp(88px, 15vw, 300px)',
       }}>
         <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest"
-             style={{ width: '130%', marginLeft: '-1.5%', display: 'block' }} />
+             style={{ width: '130%', marginLeft: '0.5%', display: 'block' }} />
       </div>
     </React.Fragment>
   );
