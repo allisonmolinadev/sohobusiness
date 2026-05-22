@@ -40,16 +40,16 @@ function Nav() {
   ];
 
   return (
+    <React.Fragment>
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 90,
       background: (scrolled || menuOpen) ? 'rgba(10,10,10,0.92)' : 'transparent',
-      backdropFilter: (scrolled || menuOpen) ? 'blur(18px)' : 'none',
-      WebkitBackdropFilter: (scrolled || menuOpen) ? 'blur(18px)' : 'none',
+      backdropFilter: scrolled ? 'blur(18px)' : 'none',
+      WebkitBackdropFilter: scrolled ? 'blur(18px)' : 'none',
       borderBottom: scrolled ? '1px solid rgba(245,247,246,0.08)' : '1px solid transparent',
       transition: 'background 0.5s, backdrop-filter 0.5s, border-color 0.5s',
     }}>
       <div style={{
-        position: 'relative', zIndex: 2,
         maxWidth: 'var(--max)', margin: '0 auto',
         padding: '22px var(--gutter)',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -132,16 +132,28 @@ function Nav() {
         </button>
       </div>
 
+      <style>{`
+        @media (max-width: 860px) {
+          .nav-links { display: none !important; }
+          .nav-cta { display: none !important; }
+          .nav-burger { display: flex !important; }
+        }
+        @media (min-width: 861px) {
+          .nav-mobile { display: none !important; }
+        }
+      `}</style>
+    </nav>
+
       {/* Painel de menu — mobile */}
       <div className="nav-mobile" style={{
-        position: 'fixed', inset: 0, zIndex: 1,
+        position: 'fixed', inset: 0, zIndex: 85,
         background: 'rgba(10,10,10,0.98)',
-        WebkitBackdropFilter: 'blur(10px)', backdropFilter: 'blur(10px)',
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        padding: '120px var(--gutter) 48px',
+        padding: '104px var(--gutter) 48px',
+        overflowY: 'auto',
         opacity: menuOpen ? 1 : 0,
         visibility: menuOpen ? 'visible' : 'hidden',
-        transition: 'opacity 0.4s ease, visibility 0.4s',
+        transition: 'opacity 0.35s ease, visibility 0.35s',
       }}>
         <ul style={{
           listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 2,
@@ -152,7 +164,7 @@ function Nav() {
                 display: 'block', padding: '12px 0',
                 color: 'var(--paper)', textDecoration: 'none',
                 fontFamily: 'var(--f-display)',
-                fontSize: 'clamp(28px, 8vw, 44px)',
+                fontSize: 'clamp(26px, 7vw, 42px)',
                 fontWeight: 400, letterSpacing: '-0.02em',
               }}>{l.label}</a>
             </li>
@@ -174,18 +186,7 @@ function Nav() {
           Contato
         </a>
       </div>
-
-      <style>{`
-        @media (max-width: 860px) {
-          .nav-links { display: none !important; }
-          .nav-cta { display: none !important; }
-          .nav-burger { display: flex !important; }
-        }
-        @media (min-width: 861px) {
-          .nav-mobile { display: none !important; }
-        }
-      `}</style>
-    </nav>
+    </React.Fragment>
   );
 }
 

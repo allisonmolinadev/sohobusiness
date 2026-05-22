@@ -59,43 +59,26 @@ function Sobre() {
               O SoHo Business reúne salas comerciais, centro comercial integrado e espaços de convivência em um empreendimento completo, pensado para valorizar empresas, investidores e o fluxo de pessoas no dia a dia. Com hall amplo, estacionamento com valet, áreas externas de convivência e lojas integradas ao projeto, o empreendimento oferece mais praticidade, estrutura e movimento para quem trabalha, investe ou circula pelo espaço.
             </p>
 
-            {/* Área privativa — metragem + selo de junção de salas */}
+            {/* Indicadores — 3 tópicos na horizontal */}
             <div style={{
-              marginTop: 24, borderTop: '1px solid var(--line)', paddingTop: 32,
-            }}>
-              <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 16 }}>
-                Área privativa
-              </div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
-                <MedidaSobre n="32" />
-                <span style={{
-                  fontFamily: 'var(--f-display)',
-                  fontSize: 'clamp(16px, 1.5vw, 20px)',
-                  color: 'var(--neutral)', fontWeight: 300,
-                }}>até</span>
-                <MedidaSobre n="1080" />
-              </div>
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: 14,
-                marginTop: 28, padding: '16px 24px',
-                border: '1px solid var(--ink)', borderRadius: 26,
-                maxWidth: 440,
-              }}>
-                <KeyIconSobre />
-                <span style={{ fontSize: 14, lineHeight: 1.4 }}>
-                  Possibilidade de junção de salas após a{' '}
-                  <strong style={{ fontWeight: 600 }}>entrega das chaves</strong>.
-                </span>
-              </div>
-            </div>
-
-            {/* Unidades + Pavimentos */}
-            <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
+              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
               marginTop: 32, borderTop: '1px solid var(--line)',
             }} className="sobre-stats">
-              <Stat label="Unidades" value="415 salas" first />
+              <Stat label="Salas comerciais a partir de" value="32m² até 1080m²" first />
+              <Stat label="Unidades" value="415 salas" />
               <Stat label="Pavimentos" value="21" />
+            </div>
+
+            {/* Selo de junção de salas */}
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 14,
+              marginTop: 28, color: 'var(--ink)',
+            }}>
+              <KeyIconSobre />
+              <span style={{ fontSize: 14, lineHeight: 1.4 }}>
+                Possibilidade de junção de salas após a{' '}
+                <strong style={{ fontWeight: 600 }}>entrega das chaves</strong>.
+              </span>
             </div>
           </div>
         </div>
@@ -143,24 +126,6 @@ function SectionLabel({ num, label }) {
         — {label}
       </span>
     </div>
-  );
-}
-
-/* Número grande + unidade m² (área privativa) */
-function MedidaSobre({ n }) {
-  return (
-    <span style={{ display: 'inline-flex', alignItems: 'baseline', gap: 5 }}>
-      <span style={{
-        fontFamily: 'var(--f-display)',
-        fontSize: 'clamp(34px, 4vw, 56px)',
-        fontWeight: 400, letterSpacing: '-0.03em',
-      }}>{n}</span>
-      <span style={{
-        fontFamily: 'var(--f-display)',
-        fontSize: 'clamp(20px, 2.4vw, 32px)',
-        fontWeight: 400, color: 'var(--neutral)',
-      }}>m²</span>
-    </span>
   );
 }
 
