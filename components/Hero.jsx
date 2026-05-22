@@ -141,12 +141,6 @@ function HeroFullbleed() {
                 filter: 'drop-shadow(0 2px 24px rgba(0,0,0,0.35))',
               }} />
             </div>
-
-            <div style={{ display: 'flex', gap: 32, alignItems: 'baseline', flexWrap: 'wrap' }}>
-              <MiniMeta k="Pavimentos" v="21" />
-              <MiniMeta k="Unidades" v="415" />
-              <MiniMeta k="Tipologias" v="32 — 322,57m²" />
-            </div>
           </div>
 
           {/* Right: CTA */}
