@@ -10,24 +10,28 @@ function Footer() {
         borderTop: '1px solid var(--line)',
       }}>
         <div style={{ maxWidth: 'var(--max)', margin: '0 auto', width: '100%' }}>
+          <h2 className="display reveal" style={{
+            fontSize: 'clamp(34px, 4vw, 68px)',
+            fontWeight: 400,
+            lineHeight: 1.1,
+            maxWidth: 1080,
+          }}>
+            Faça parte do próximo movimento<br/>
+            <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral)' }}>
+              de negócios da cidade!
+            </em>
+          </h2>
+
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
-            gap: 'clamp(40px, 6vw, 120px)',
-            alignItems: 'end',
+            gridTemplateColumns: 'minmax(0, 0.78fr) minmax(0, 1.22fr)',
+            gap: 'clamp(40px, 6vw, 96px)',
+            marginTop: 'clamp(48px, 6vw, 88px)',
+            alignItems: 'start',
           }} className="cta-grid reveal">
-            <h2 className="display" style={{
-              fontSize: 'clamp(40px, 4.6vw, 80px)',
-              fontWeight: 400,
-              lineHeight: 1.05,
-              minWidth: 0,
-            }}>
-              Receba o book<br/>
-              do empreendimento<br/>
-              <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral)' }}>
-                em primeira mão.
-              </em>
-            </h2>
+            <img src="assets/fachada-form.png" alt="Fachada do SoHo Business" style={{
+              width: '100%', height: 'auto', display: 'block',
+            }} />
 
             <div>
               <p style={{
