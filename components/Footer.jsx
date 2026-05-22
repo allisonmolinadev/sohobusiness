@@ -176,7 +176,6 @@ function Form() {
   const [values, setValues] = React.useState({
     nome: '', sobrenome: '', telefone: '', email: '', aceite: false,
   });
-  const [sent, setSent] = React.useState(false);
   const [sending, setSending] = React.useState(false);
   const [error, setError] = React.useState('');
   const set = (k) => (e) => setValues({
@@ -207,27 +206,14 @@ function Form() {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      setSent(true);
+      // Sucesso — redireciona para a página de obrigado
+      window.location.href = 'obrigado.html';
+      return;
     } catch (err) {
       setError('Não foi possível enviar agora. Tente novamente em instantes.');
-    } finally {
       setSending(false);
     }
   };
-
-  if (sent) {
-    return (
-      <div style={{
-        padding: '28px 24px',
-        border: '1px solid var(--ink)',
-      }}>
-        <div className="eyebrow" style={{ marginBottom: 10 }}>— Recebido</div>
-        <p style={{ fontSize: 16, lineHeight: 1.55 }}>
-          Obrigado, {values.nome.split(' ')[0] || 'visitante'}. Em breve você receberá o material por e-mail.
-        </p>
-      </div>
-    );
-  }
 
   const input = {
     width: '100%', background: 'transparent',
