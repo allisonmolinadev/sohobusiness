@@ -23,6 +23,7 @@ function Galeria() {
 
   const [idx, setIdx] = React.useState(0);
   const [autoplay, setAutoplay] = React.useState(false);
+  const [lightbox, setLightbox] = React.useState(false);
   const carouselRef = React.useRef(null);
   const thumbsRef = React.useRef(null);
   const touchRef = React.useRef({ x: 0, dx: 0 });
@@ -37,9 +38,15 @@ function Galeria() {
     return () => clearInterval(id);
   }, [autoplay, next]);
 
-  // Navegação por teclado (somente com a galeria visível)
+  // Navegação por teclado (galeria visível ou lightbox aberto)
   React.useEffect(() => {
     const onKey = (e) => {
+      if (e.key === 'Escape') { setLightbox(false); return; }
+      if (lightbox) {
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+        return;
+      }
       const el = carouselRef.current;
       if (!el) return;
       const r = el.getBoundingClientRect();
@@ -50,7 +57,13 @@ function Galeria() {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [next, prev]);
+  }, [next, prev, lightbox]);
+
+  // Trava o scroll do body com o lightbox aberto
+  React.useEffect(() => {
+    document.body.style.overflow = lightbox ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [lightbox]);
 
   // Mantém a miniatura ativa visível
   React.useEffect(() => {
@@ -138,12 +151,13 @@ function Galeria() {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          {/* Imagem — preenche 100% do quadro */}
-          <div style={{
+          {/* Imagem — preenche 100% do quadro · clique para ampliar */}
+          <div onClick={() => setLightbox(true)} style={{
             position: 'relative',
             width: '100%',
             aspectRatio: '16 / 9',
             background: '#0A0A0A',
+            cursor: 'zoom-in',
           }}>
             {images.map((im, i) => (
               <div key={i} style={{
@@ -162,26 +176,8 @@ function Galeria() {
               pointerEvents: 'none',
             }} />
 
-            {/* Legenda */}
-            <div style={{
-              position: 'absolute', left: 32, bottom: 32,
-              maxWidth: 520, color: 'var(--paper)',
-            }} key={idx} className="cap-fade">
-              <div style={{
-                fontFamily: 'var(--f-mono)', fontSize: 10,
-                letterSpacing: '0.22em', textTransform: 'uppercase',
-                color: 'var(--neutral-2)', marginBottom: 10,
-              }}>— {cur.label}</div>
-              <div style={{
-                fontFamily: 'var(--f-display)',
-                fontSize: 'clamp(18px, 2vw, 24px)',
-                fontWeight: 400, lineHeight: 1.3,
-                letterSpacing: '-0.01em',
-              }}>{cur.caption}</div>
-            </div>
-
             {/* Setas */}
-            <div style={{
+            <div onClick={e => e.stopPropagation()} style={{
               position: 'absolute', right: 32, bottom: 32,
               display: 'flex', gap: 12,
             }}>
@@ -253,14 +249,60 @@ function Galeria() {
         <span>Imagens preliminares · sujeitas a alterações</span>
       </div>
 
+      {/* Lightbox — imagem ampliada */}
+      {lightbox && (
+        <div onClick={() => setLightbox(false)} className="lightbox" style={{
+          position: 'fixed', inset: 0, zIndex: 1000,
+          background: 'rgba(10,10,10,0.96)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: 'clamp(16px, 4vw, 72px)',
+          cursor: 'zoom-out',
+        }}>
+          <img src={cur.src} alt={cur.caption}
+            onClick={e => e.stopPropagation()}
+            className="lightbox-img"
+            style={{
+              maxWidth: '100%', maxHeight: '100%',
+              objectFit: 'contain', cursor: 'default',
+            }} />
+
+          {/* Fechar */}
+          <button onClick={() => setLightbox(false)} aria-label="Fechar" style={{
+            position: 'fixed', top: 24, right: 24,
+            width: 52, height: 52,
+            border: '1px solid rgba(245,247,246,0.4)',
+            background: 'transparent', color: 'var(--paper)',
+            cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M1 1L17 17M17 1L1 17" stroke="currentColor" strokeWidth="1.4"/>
+            </svg>
+          </button>
+
+          {/* Navegação */}
+          <div onClick={e => e.stopPropagation()} style={{
+            position: 'fixed', bottom: 24, left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex', gap: 12,
+          }}>
+            <ArrowBtn onClick={prev} direction="prev" />
+            <ArrowBtn onClick={next} direction="next" />
+          </div>
+        </div>
+      )}
+
       <style>{`
         .thumb-strip::-webkit-scrollbar { display: none; }
-        .cap-fade {
-          animation: cap-fade-in 0.8s cubic-bezier(.2,.7,.2,1);
+        .lightbox { animation: lb-fade 0.3s ease; }
+        .lightbox-img { animation: lb-zoom 0.35s cubic-bezier(.2,.7,.2,1); }
+        @keyframes lb-fade {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
-        @keyframes cap-fade-in {
-          from { opacity: 0; transform: translateY(8px); }
-          to { opacity: 1; transform: translateY(0); }
+        @keyframes lb-zoom {
+          from { opacity: 0; transform: scale(0.96); }
+          to { opacity: 1; transform: scale(1); }
         }
       `}</style>
     </section>
