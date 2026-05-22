@@ -94,15 +94,6 @@ function Footer() {
             <span>© 2026 FAJ Invest · Todos os direitos reservados</span>
             <span>Perspectiva artística — imagens ilustrativas</span>
           </div>
-
-          {/* Assinatura — logo FAJ Invest */}
-          <div style={{
-            marginTop: 64,
-            display: 'flex', justifyContent: 'center',
-          }}>
-            <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest"
-                 style={{ width: 'min(560px, 80vw)', height: 'auto', opacity: 0.9 }} />
-          </div>
         </div>
 
         <style>{`
@@ -112,6 +103,12 @@ function Footer() {
           }
         `}</style>
       </footer>
+
+      {/* Assinatura FAJ Invest — logo de fora a fora */}
+      <div style={{ background: 'var(--ink)', width: '100%', lineHeight: 0 }}>
+        <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest"
+             style={{ width: '100%', height: 'auto', display: 'block' }} />
+      </div>
     </React.Fragment>
   );
 }
