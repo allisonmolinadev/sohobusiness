@@ -129,8 +129,7 @@ function Diferenciais() {
             </em>
             &nbsp;no tempo.
           </h2>
-          <img src="assets/fachada-estilizada.png" alt="Fachada do empreendimento"
-               style={{ width: '100%', height: 'auto', display: 'block' }} />
+          <FachadaInterativa />
         </div>
 
         <div style={{
@@ -212,4 +211,49 @@ function Diferenciais() {
   );
 }
 
+/* Fachada com leve inclinação 3D que segue o cursor */
+function FachadaInterativa() {
+  const ref = React.useRef(null);
+  const reduced = React.useRef(false);
+  const [tilt, setTilt] = React.useState({ rx: 0, ry: 0, active: false });
+
+  React.useEffect(() => {
+    reduced.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
+
+  const onMove = (e) => {
+    if (reduced.current) return;
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;   // 0..1
+    const py = (e.clientY - r.top) / r.height;   // 0..1
+    const max = 9; // graus máximos
+    setTilt({
+      rx: (0.5 - py) * 2 * max,
+      ry: (px - 0.5) * 2 * max,
+      active: true,
+    });
+  };
+  const onLeave = () => setTilt({ rx: 0, ry: 0, active: false });
+
+  return (
+    <div ref={ref} onMouseMove={onMove} onMouseLeave={onLeave}
+      style={{ perspective: 1000 }}>
+      <img src="assets/fachada-estilizada.png" alt="Fachada do empreendimento"
+        style={{
+          width: '100%', height: 'auto', display: 'block',
+          transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg) scale(${tilt.active ? 1.05 : 1})`,
+          transition: tilt.active
+            ? 'transform 0.12s ease-out, filter 0.3s ease'
+            : 'transform 0.7s cubic-bezier(.2,.7,.2,1), filter 0.5s ease',
+          filter: tilt.active ? 'brightness(1.06)' : 'brightness(1)',
+          transformStyle: 'preserve-3d',
+          willChange: 'transform',
+        }} />
+    </div>
+  );
+}
+
 window.Diferenciais = Diferenciais;
+window.FachadaInterativa = FachadaInterativa;
