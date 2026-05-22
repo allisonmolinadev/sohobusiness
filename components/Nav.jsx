@@ -1,4 +1,6 @@
-// Top navigation — minimal, fixed, blends into hero
+// Top navigation — minimal, fixo, com menu hambúrguer no mobile
+const WHATSAPP_URL = 'https://wa.me/551732112420?text=Ol%C3%A1!%20Tenho%20interesse%20no%20SoHo%20Business.';
+
 function Nav() {
   const [scrolled, setScrolled] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -8,6 +10,24 @@ function Nav() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Esc fecha o menu; resize para desktop também fecha
+  React.useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+    const onResize = () => { if (window.innerWidth > 860) setMenuOpen(false); };
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  // Trava o scroll do body com o menu aberto
+  React.useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   const links = [
     { href: '#empreendimento', label: 'Empreendimento' },
@@ -22,23 +42,26 @@ function Nav() {
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 90,
-      background: scrolled ? 'rgba(10,10,10,0.92)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(18px)' : 'none',
-      WebkitBackdropFilter: scrolled ? 'blur(18px)' : 'none',
+      background: (scrolled || menuOpen) ? 'rgba(10,10,10,0.92)' : 'transparent',
+      backdropFilter: (scrolled || menuOpen) ? 'blur(18px)' : 'none',
+      WebkitBackdropFilter: (scrolled || menuOpen) ? 'blur(18px)' : 'none',
       borderBottom: scrolled ? '1px solid rgba(245,247,246,0.08)' : '1px solid transparent',
       transition: 'background 0.5s, backdrop-filter 0.5s, border-color 0.5s',
     }}>
       <div style={{
+        position: 'relative', zIndex: 2,
         maxWidth: 'var(--max)', margin: '0 auto',
         padding: '22px var(--gutter)',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         color: 'var(--paper)',
       }}>
-        <a href="#top" style={{ display: 'block', height: 28 }}>
+        <a href="#top" onClick={() => setMenuOpen(false)}
+           style={{ display: 'block', height: 28 }}>
           <img src="assets/soho-logo-white.png" alt="SoHo Business"
                style={{ height: 28, width: 'auto' }} />
         </a>
 
+        {/* Links — desktop */}
         <ul style={{
           display: 'flex', listStyle: 'none', gap: 38,
           alignItems: 'center',
@@ -62,8 +85,9 @@ function Nav() {
           ))}
         </ul>
 
-        <a href="https://wa.me/551732112420?text=Ol%C3%A1!%20Tenho%20interesse%20no%20SoHo%20Business."
-           target="_blank" rel="noopener noreferrer" style={{
+        {/* CTA — desktop */}
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+           className="nav-cta" style={{
           display: 'inline-flex',
           alignItems: 'center',
           gap: 8,
@@ -86,11 +110,79 @@ function Nav() {
           <WhatsAppIcon />
           Contato
         </a>
+
+        {/* Botão hambúrguer — mobile */}
+        <button className="nav-burger" onClick={() => setMenuOpen(o => !o)}
+          aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={menuOpen}
+          style={{
+            display: 'none',
+            alignItems: 'center', justifyContent: 'center',
+            width: 44, height: 44, padding: 0,
+            background: 'transparent', border: 'none',
+            color: 'var(--paper)', cursor: 'pointer',
+          }}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            {menuOpen ? (
+              <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+            ) : (
+              <path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Painel de menu — mobile */}
+      <div className="nav-mobile" style={{
+        position: 'fixed', inset: 0, zIndex: 1,
+        background: 'rgba(10,10,10,0.98)',
+        WebkitBackdropFilter: 'blur(10px)', backdropFilter: 'blur(10px)',
+        display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        padding: '120px var(--gutter) 48px',
+        opacity: menuOpen ? 1 : 0,
+        visibility: menuOpen ? 'visible' : 'hidden',
+        transition: 'opacity 0.4s ease, visibility 0.4s',
+      }}>
+        <ul style={{
+          listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 2,
+        }}>
+          {links.map(l => (
+            <li key={l.href}>
+              <a href={l.href} onClick={() => setMenuOpen(false)} style={{
+                display: 'block', padding: '12px 0',
+                color: 'var(--paper)', textDecoration: 'none',
+                fontFamily: 'var(--f-display)',
+                fontSize: 'clamp(28px, 8vw, 44px)',
+                fontWeight: 400, letterSpacing: '-0.02em',
+              }}>{l.label}</a>
+            </li>
+          ))}
+        </ul>
+
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+           onClick={() => setMenuOpen(false)}
+           style={{
+             display: 'inline-flex', alignItems: 'center', gap: 10,
+             alignSelf: 'flex-start',
+             marginTop: 40,
+             fontFamily: 'var(--f-body)', fontSize: 12,
+             letterSpacing: '0.16em', textTransform: 'uppercase',
+             color: 'var(--ink)', textDecoration: 'none',
+             padding: '16px 26px', background: 'var(--paper)',
+           }}>
+          <WhatsAppIcon />
+          Contato
+        </a>
       </div>
 
       <style>{`
         @media (max-width: 860px) {
           .nav-links { display: none !important; }
+          .nav-cta { display: none !important; }
+          .nav-burger { display: flex !important; }
+        }
+        @media (min-width: 861px) {
+          .nav-mobile { display: none !important; }
         }
       `}</style>
     </nav>
