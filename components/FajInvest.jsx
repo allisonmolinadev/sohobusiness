@@ -2,7 +2,7 @@
 function FajInvest() {
   return (
     <section id="faj" style={{
-      background: 'linear-gradient(rgba(10,10,10,0.78), rgba(10,10,10,0.78)), url(assets/background.jpg) center/cover no-repeat',
+      background: 'var(--ink)',
       color: 'var(--paper)',
       padding: '160px var(--gutter)',
     }}>

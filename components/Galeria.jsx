@@ -92,7 +92,7 @@ function Galeria() {
 
   return (
     <section id="galeria" style={{
-      background: 'linear-gradient(rgba(10,10,10,0.78), rgba(10,10,10,0.78)), url(assets/background.jpg) center/cover no-repeat',
+      background: 'var(--ink)',
       color: 'var(--paper)',
       padding: '160px 0 120px',
     }} ref={carouselRef}
