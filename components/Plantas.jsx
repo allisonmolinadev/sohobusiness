@@ -199,7 +199,7 @@ function Medida({ n }) {
       }}>{n}</span>
       <span style={{
         fontFamily: 'var(--f-display)',
-        fontSize: 'clamp(16px, 1.6vw, 24px)',
+        fontSize: 'clamp(26px, 3.4vw, 52px)',
         fontWeight: 400, color: 'var(--neutral)',
       }}>m²</span>
     </span>
