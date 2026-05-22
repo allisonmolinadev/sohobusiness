@@ -112,18 +112,30 @@ function Diferenciais() {
           </span>
         </div>
 
-        <h2 className="display reveal" style={{
-          fontSize: 'clamp(44px, 6vw, 104px)',
-          fontWeight: 400,
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1.15fr) minmax(0, 0.85fr)',
+          gap: 'clamp(32px, 5vw, 88px)',
           marginTop: 72,
-          maxWidth: 1100,
-        }}>
-          Atributos que<br/>
-          <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>
-            valorizam o ativo
-          </em>
-          &nbsp;no tempo.
-        </h2>
+          alignItems: 'center',
+        }} className="dif-head reveal">
+          <h2 className="display" style={{
+            fontSize: 'clamp(40px, 4.8vw, 84px)',
+            fontWeight: 400,
+          }}>
+            Atributos que<br/>
+            <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>
+              valorizam o ativo
+            </em>
+            &nbsp;no tempo.
+          </h2>
+          <div style={{
+            width: '100%',
+            aspectRatio: '4 / 3',
+            background: "url('assets/fachada-principal.jpg') center/cover no-repeat",
+            border: '1px solid rgba(245,247,246,0.12)',
+          }} />
+        </div>
 
         <div style={{
           display: 'grid',
@@ -191,6 +203,7 @@ function Diferenciais() {
           .dif-cell:hover .dif-title { transform: none; }
         }
         @media (max-width: 980px) {
+          .dif-head { grid-template-columns: 1fr !important; gap: 40px !important; }
           .dif-grid { grid-template-columns: 1fr !important; }
           .dif-cell {
             border-right: none !important;
