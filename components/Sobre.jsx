@@ -64,7 +64,22 @@ function Sobre() {
               display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
               marginTop: 32, borderTop: '1px solid var(--line)',
             }} className="sobre-stats">
-              <Stat label="Salas comerciais a partir de" value="32m² com opção de expansão até 1080m²" first />
+              <Stat label="Salas comerciais a partir de" first value={
+                <React.Fragment>
+                  32m²
+                  <span style={{
+                    display: 'block',
+                    fontFamily: 'var(--f-body)',
+                    fontSize: 13, fontWeight: 300,
+                    letterSpacing: '0.01em',
+                    color: 'var(--neutral)',
+                    margin: '6px 0',
+                  }}>
+                    com opção de expansão até
+                  </span>
+                  1080m²
+                </React.Fragment>
+              } />
               <Stat label="Unidades" value="415 salas" />
               <Stat label="Pavimentos" value="21" />
             </div>
