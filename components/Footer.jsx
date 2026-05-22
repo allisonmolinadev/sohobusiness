@@ -10,34 +10,43 @@ function Footer() {
         borderTop: '1px solid var(--line)',
       }}>
         <div style={{ maxWidth: 'var(--max)', margin: '0 auto', width: '100%' }}>
-          <h2 className="display reveal" style={{
-            fontSize: 'clamp(34px, 4vw, 68px)',
-            fontWeight: 400,
-            lineHeight: 1.1,
-            maxWidth: 1080,
-          }}>
-            Faça parte do próximo movimento<br/>
-            <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral)' }}>
-              de negócios da cidade!
-            </em>
-          </h2>
-
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'minmax(0, 0.78fr) minmax(0, 1.22fr)',
             gap: 'clamp(40px, 6vw, 96px)',
-            marginTop: 'clamp(48px, 6vw, 88px)',
             alignItems: 'start',
           }} className="cta-grid reveal">
+            {/* Esquerda — só a fachada */}
             <img src="assets/fachada-form.png" alt="Fachada do SoHo Business" style={{
               width: '100%', height: 'auto', display: 'block',
               alignSelf: 'end',
             }} />
 
+            {/* Direita — título, subtítulo e formulário */}
             <div style={{ paddingBottom: 'clamp(80px, 8vw, 120px)' }}>
+              <h2 className="display" style={{
+                fontSize: 'clamp(30px, 3vw, 48px)',
+                fontWeight: 400,
+                lineHeight: 1.12,
+              }}>
+                Faça parte do próximo movimento{' '}
+                <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral)' }}>
+                  de negócios da cidade!
+                </em>
+              </h2>
+
+              <p style={{
+                fontSize: 'clamp(18px, 1.6vw, 22px)',
+                lineHeight: 1.4, fontWeight: 400,
+                color: 'var(--ink)',
+                marginTop: 20,
+              }}>
+                Cadastre-se e conheça o SoHo Business.
+              </p>
+
               <p style={{
                 fontSize: 16, lineHeight: 1.65, color: '#333',
-                marginBottom: 32, maxWidth: 420,
+                marginTop: 24, marginBottom: 32, maxWidth: 460,
               }}>
                 Material completo com plantas, especificações, projeto arquitetônico e valores sob consulta.
               </p>
