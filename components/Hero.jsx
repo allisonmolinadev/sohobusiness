@@ -147,22 +147,10 @@ function HeroFullbleed() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
             <div>
               <img src="assets/soho-logo-white.png" alt="SoHo Business" style={{
-                width: 'min(240px, 52vw)', height: 'auto',
+                width: 'min(380px, 76vw)', height: 'auto',
                 display: 'block',
                 filter: 'drop-shadow(0 2px 24px rgba(0,0,0,0.35))',
               }} />
-              <div style={{
-                marginTop: 14,
-                fontFamily: 'var(--f-display)',
-                fontSize: 'clamp(11px, 1vw, 13px)',
-                fontWeight: 300,
-                letterSpacing: '0.32em',
-                textTransform: 'uppercase',
-                color: 'var(--paper)',
-                opacity: 0.88,
-              }}>
-                Escritórios que <span style={{ fontWeight: 600 }}>permanecem</span>
-              </div>
             </div>
 
             <div style={{ display: 'flex', gap: 32, alignItems: 'baseline', flexWrap: 'wrap' }}>
