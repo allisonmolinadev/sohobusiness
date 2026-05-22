@@ -63,7 +63,7 @@ function Sobre() {
               display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
               marginTop: 32, borderTop: '1px solid var(--line)',
             }} className="sobre-stats">
-              <Stat label="Área privativa" value="32 — 322,57m²" />
+              <Stat label="Área privativa" value="32 — 322,57m²" first />
               <Stat label="Unidades" value="454 salas" />
               <Stat label="Pavimentos" value="21" />
             </div>
@@ -82,13 +82,13 @@ function Sobre() {
   );
 }
 
-function Stat({ label, value }) {
+function Stat({ label, value, first }) {
   return (
     <div style={{
-      padding: '24px 20px 24px 0',
+      padding: `32px 28px 32px ${first ? 0 : 28}px`,
       borderRight: '1px solid var(--line)',
     }} className="stat">
-      <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 10 }}>{label}</div>
+      <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 12 }}>{label}</div>
       <div style={{
         fontFamily: 'var(--f-display)',
         fontSize: 26, fontWeight: 500, letterSpacing: '-0.02em',
