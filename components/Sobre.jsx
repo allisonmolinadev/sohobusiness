@@ -70,8 +70,8 @@ function Sobre() {
                   <span style={{
                     display: 'block',
                     fontFamily: 'var(--f-body)',
-                    fontSize: 13, fontWeight: 300,
-                    letterSpacing: '0.08em',
+                    fontSize: 11, fontWeight: 300,
+                    letterSpacing: '0.18em',
                     textTransform: 'uppercase',
                     color: 'var(--neutral)',
                     margin: '6px 0',
@@ -105,6 +105,7 @@ function Sobre() {
           .sobre-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
           .sobre-stats { grid-template-columns: 1fr !important; }
           .sobre-stats > * + * { border-top: 1px solid var(--line) !important; }
+          .sobre-stats .stat { padding-left: 0 !important; }
         }
       `}</style>
     </section>
