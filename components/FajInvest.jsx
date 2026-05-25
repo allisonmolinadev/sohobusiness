@@ -41,9 +41,9 @@ function FajInvest() {
                   — Realização
                 </div>
                 <a href="https://fajempreendimentos.com/" target="_blank" rel="noopener noreferrer"
-                   style={{ display: 'inline-block' }} aria-label="FAJ Empreendimentos">
+                   style={{ display: 'block', width: 'min(340px, 100%)' }} aria-label="FAJ Empreendimentos">
                   <img src="assets/logo-faj-empreendimentos-horizontal.png" alt="FAJ Empreendimentos" style={{
-                    height: 24, width: 'auto', display: 'block',
+                    width: '100%', height: 'auto', display: 'block',
                   }} />
                 </a>
               </div>
@@ -52,9 +52,9 @@ function FajInvest() {
                   — Linha
                 </div>
                 <a href="https://fajinvest.com.br/" target="_blank" rel="noopener noreferrer"
-                   style={{ display: 'inline-block' }} aria-label="FAJ Invest">
+                   style={{ display: 'block', width: 'min(340px, 100%)' }} aria-label="FAJ Invest">
                   <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest" style={{
-                    height: 24, width: 'auto', display: 'block',
+                    width: '100%', height: 'auto', display: 'block',
                   }} />
                 </a>
               </div>
