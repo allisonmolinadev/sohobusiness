@@ -162,7 +162,7 @@ function FCol({ title, items }) {
   );
 }
 
-const WEBHOOK_URL = 'https://autowebhook.grupofaj.app/webhook/fajinvest';
+const WEBHOOK_URL = 'https://autowebhook.grupofaj.app/webhook/forms-sites';
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_produto'];
 
 function getUtms() {
