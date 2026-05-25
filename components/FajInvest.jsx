@@ -40,17 +40,23 @@ function FajInvest() {
                 <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 16 }}>
                   — Realização
                 </div>
-                <img src="assets/logo-faj-empreendimentos-branco.png" alt="FAJ Empreendimentos" style={{
-                  height: 42, width: 'auto', display: 'block',
-                }} />
+                <a href="https://fajempreendimentos.com/" target="_blank" rel="noopener noreferrer"
+                   style={{ display: 'inline-block' }} aria-label="FAJ Empreendimentos">
+                  <img src="assets/logo-faj-empreendimentos-branco.png" alt="FAJ Empreendimentos" style={{
+                    height: 42, width: 'auto', display: 'block',
+                  }} />
+                </a>
               </div>
               <div>
                 <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 16 }}>
                   — Linha
                 </div>
-                <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest" style={{
-                  height: 26, width: 'auto', display: 'block',
-                }} />
+                <a href="https://fajinvest.com.br/" target="_blank" rel="noopener noreferrer"
+                   style={{ display: 'inline-block' }} aria-label="FAJ Invest">
+                  <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest" style={{
+                    height: 26, width: 'auto', display: 'block',
+                  }} />
+                </a>
               </div>
             </div>
           </div>
