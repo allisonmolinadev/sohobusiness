@@ -8,20 +8,6 @@ function FajInvest() {
     }}>
       <div style={{ maxWidth: 'var(--max)', margin: '0 auto', width: '100%' }}>
         <div style={{
-          display: 'flex', alignItems: 'center', gap: 24,
-          borderTop: '1px solid rgba(245,247,246,0.15)',
-          paddingTop: 24,
-        }} className="reveal">
-          <span style={{
-            fontFamily: 'var(--f-mono)', fontSize: 11,
-            letterSpacing: '0.2em', color: 'var(--neutral)',
-          }}>05</span>
-          <span className="eyebrow" style={{ color: 'var(--paper)' }}>
-            — Realização
-          </span>
-        </div>
-
-        <div style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 1fr)',
           gap: 'clamp(40px, 6vw, 120px)',
