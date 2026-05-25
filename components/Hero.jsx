@@ -107,102 +107,21 @@ function HeroEditorial() {
 /* --------- Variant B: FULLBLEED
    Image fills the entire viewport; type overlaid bottom-left.
    --------- */
-/* Video da hero — YouTube via IFrame API, loop sem tela de fim */
+/* Video da hero — MP4 nativo (sem controles, loop perfeito) */
 function HeroVideo() {
-  const containerRef = React.useRef(null);
-
-  React.useEffect(() => {
-    let player = null;
-    let pollInterval = null;
-    let cancelled = false;
-
-    const buildPlayer = () => {
-      if (cancelled || !containerRef.current) return;
-      player = new window.YT.Player(containerRef.current, {
-        host: 'https://www.youtube-nocookie.com',
-        height: '100%',
-        width: '100%',
-        videoId: 'VpxxWOqdX_0',
-        playerVars: {
-          autoplay: 1, mute: 1, controls: 0,
-          modestbranding: 1, rel: 0, iv_load_policy: 3,
-          playsinline: 1, disablekb: 1, fs: 0, cc_load_policy: 0,
-        },
-        events: {
-          onReady: (e) => {
-            try { e.target.mute(); e.target.playVideo(); } catch (err) {}
-            // Re-seek antes do fim — evita a tela preta / end screen do YouTube
-            pollInterval = setInterval(() => {
-              try {
-                const dur = e.target.getDuration();
-                const cur = e.target.getCurrentTime();
-                if (dur > 0 && cur >= dur - 0.4) {
-                  e.target.seekTo(0, true);
-                  e.target.playVideo();
-                }
-              } catch (err) {}
-            }, 200);
-          },
-          onStateChange: (e) => {
-            // Se algo pausar o video, retoma imediatamente
-            if (e.data === 2) { // PAUSED
-              try { e.target.playVideo(); } catch (err) {}
-            }
-            // Fallback — se ainda chegar ao fim, volta pro inicio
-            if (e.data === 0) { // ENDED
-              try { e.target.seekTo(0, true); e.target.playVideo(); } catch (err) {}
-            }
-          },
-        },
-      });
-    };
-
-    if (window.YT && window.YT.Player) {
-      buildPlayer();
-    } else {
-      const prev = window.onYouTubeIframeAPIReady;
-      window.onYouTubeIframeAPIReady = () => {
-        if (prev) prev();
-        buildPlayer();
-      };
-      if (!document.querySelector('script[data-yt-iframe-api]')) {
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        tag.setAttribute('data-yt-iframe-api', '1');
-        document.head.appendChild(tag);
-      }
-    }
-
-    return () => {
-      cancelled = true;
-      if (pollInterval) clearInterval(pollInterval);
-      if (player) { try { player.destroy(); } catch (err) {} }
-    };
-  }, []);
-
   return (
-    <div className="hero-video" style={{
-      position: 'absolute', inset: 0, overflow: 'hidden', background: '#0A0A0A',
-    }}>
-      <div style={{
-        position: 'absolute', top: '50%', left: '50%',
-        width: 'max(100vw, calc(100vh * 16 / 9))',
-        height: 'max(100vh, calc(100vw * 9 / 16))',
-        transform: 'translate(-50%, -50%)',
-      }}>
-        <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
-      </div>
-      {/* Camada bloqueia toques/cliques sobre o video */}
-      <div style={{ position: 'absolute', inset: 0 }} />
-      <style>{`
-        .hero-video iframe {
-          width: 100% !important;
-          height: 100% !important;
-          display: block;
-          border: 0;
-          pointer-events: none;
-        }
-      `}</style>
+    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', background: '#0A0A0A' }}>
+      <video
+        autoPlay muted loop playsInline preload="auto"
+        disablePictureInPicture
+        style={{
+          position: 'absolute', inset: 0,
+          width: '100%', height: '100%',
+          objectFit: 'cover',
+          pointerEvents: 'none',
+        }}>
+        <source src="assets/video-soho-business.mp4" type="video/mp4" />
+      </video>
     </div>
   );
 }
