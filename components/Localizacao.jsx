@@ -35,35 +35,49 @@ function Localizacao() {
           <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>ativo da cidade.</em>
         </h2>
 
-        <div style={{ marginTop: 72 }} className="loc-intro reveal">
-          <div style={{
-            fontFamily: 'var(--f-mono)', fontSize: 11,
-            letterSpacing: '0.2em', textTransform: 'uppercase',
-            color: 'var(--neutral-2)',
-            marginBottom: 28,
-          }}>
-            — Proximidades
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)',
+          gap: 'clamp(40px, 6vw, 96px)',
+          marginTop: 72,
+          alignItems: 'start',
+        }} className="loc-intro reveal">
+          {/* Esquerda — proximidades */}
+          <div>
+            <div style={{
+              fontFamily: 'var(--f-mono)', fontSize: 11,
+              letterSpacing: '0.2em', textTransform: 'uppercase',
+              color: 'var(--neutral-2)',
+              marginBottom: 28,
+            }}>
+              — Proximidades
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              <p style={{
+                fontSize: 20, lineHeight: 1.55, fontWeight: 300,
+                color: 'var(--paper)',
+              }}>
+                O SoHo Business chega para redefinir o conceito de investimento corporativo em São José do Rio Preto.
+              </p>
+              <p style={{
+                fontSize: 16, lineHeight: 1.7, fontWeight: 400,
+                color: 'var(--neutral-2)',
+              }}>
+                Em uma das regiões mais valorizadas da cidade, ao lado do Shopping Iguatemi e próximo aos principais eixos de acesso, o empreendimento une visibilidade, conveniência e rentabilidade.
+              </p>
+              <p style={{
+                fontSize: 16, lineHeight: 1.7, fontWeight: 400,
+                color: 'var(--neutral-2)',
+              }}>
+                Com fácil acesso pela BR-153 e Avenida Juscelino Kubitschek, o SoHo Business coloca você no ponto mais estratégico para trabalhar, investir e crescer. Mais do que um endereço comercial, é uma escolha inteligente para quem busca valor, credibilidade e potencial de retorno, com a solidez da FAJ Invest.
+              </p>
+            </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-            <p style={{
-              fontSize: 20, lineHeight: 1.55, fontWeight: 300,
-              color: 'var(--paper)', maxWidth: 720,
-            }}>
-              O SoHo Business chega para redefinir o conceito de investimento corporativo em São José do Rio Preto.
-            </p>
-            <p style={{
-              fontSize: 16, lineHeight: 1.7, fontWeight: 400,
-              color: 'var(--neutral-2)', maxWidth: 720,
-            }}>
-              Em uma das regiões mais valorizadas da cidade, ao lado do Shopping Iguatemi e próximo aos principais eixos de acesso, o empreendimento une visibilidade, conveniência e rentabilidade.
-            </p>
-            <p style={{
-              fontSize: 16, lineHeight: 1.7, fontWeight: 400,
-              color: 'var(--neutral-2)', maxWidth: 720,
-            }}>
-              Com fácil acesso pela BR-153 e Avenida Juscelino Kubitschek, o SoHo Business coloca você no ponto mais estratégico para trabalhar, investir e crescer. Mais do que um endereço comercial, é uma escolha inteligente para quem busca valor, credibilidade e potencial de retorno, com a solidez da FAJ Invest.
-            </p>
-          </div>
+
+          {/* Direita — mapa de localização com pontos de interesse */}
+          <img src="assets/localizacao.jpg" alt="Mapa aéreo da região com pontos de interesse" style={{
+            width: '100%', height: 'auto', display: 'block',
+          }} />
         </div>
 
         <div style={{
@@ -158,6 +172,7 @@ function Localizacao() {
         .poi-link:hover .poi-arrow { transform: translate(2px, -2px); color: var(--paper); }
         @media (max-width: 980px) {
           .loc-grid { grid-template-columns: 1fr !important; }
+          .loc-intro { grid-template-columns: 1fr !important; gap: 32px !important; }
         }
       `}</style>
     </section>
