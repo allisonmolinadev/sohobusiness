@@ -1,5 +1,20 @@
 // Localização — embed do Google Maps + pontos de interesse com link
 function Localizacao() {
+  const [mapaOpen, setMapaOpen] = React.useState(false);
+
+  // Tecla Esc fecha o lightbox
+  React.useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setMapaOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  // Trava o scroll do body com o lightbox aberto
+  React.useEffect(() => {
+    document.body.style.overflow = mapaOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mapaOpen]);
+
   // Rota do Google Maps a partir do SoHo Business até cada destino
   const ORIGEM = 'Salas comerciais FAJ';
   const rota = (destino) =>
@@ -75,12 +90,14 @@ function Localizacao() {
             </div>
           </div>
 
-          {/* Direita — mapa de localização, alinhado de ponta a ponta com o texto */}
-          <img src="assets/localizacao.jpg" alt="Mapa aéreo da região com pontos de interesse" style={{
-            width: '100%', height: '100%',
-            objectFit: 'cover', objectPosition: 'center',
-            display: 'block',
-          }} />
+          {/* Direita — mapa de localização (clicável para ampliar) */}
+          <img src="assets/localizacao.jpg" alt="Mapa aéreo da região com pontos de interesse"
+            onClick={() => setMapaOpen(true)}
+            style={{
+              width: '100%', height: '100%',
+              objectFit: 'cover', objectPosition: 'center',
+              display: 'block', cursor: 'zoom-in',
+            }} />
         </div>
 
         <div style={{
@@ -168,11 +185,48 @@ function Localizacao() {
         </div>
       </div>
 
+      {/* Lightbox — mapa ampliado */}
+      {mapaOpen && (
+        <div onClick={() => setMapaOpen(false)} className="loc-lb" style={{
+          position: 'fixed', inset: 0, zIndex: 1000,
+          background: 'rgba(10,10,10,0.96)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: 'clamp(16px, 4vw, 72px)', cursor: 'zoom-out',
+        }}>
+          <img src="assets/localizacao.jpg" alt="Mapa aéreo da região com pontos de interesse"
+            onClick={e => e.stopPropagation()}
+            className="loc-lb-img"
+            style={{
+              maxWidth: '100%', maxHeight: '100%',
+              objectFit: 'contain', cursor: 'default',
+            }} />
+          <button onClick={() => setMapaOpen(false)} aria-label="Fechar" style={{
+            position: 'fixed', top: 24, right: 24,
+            width: 52, height: 52,
+            border: '1px solid rgba(245,247,246,0.4)',
+            background: 'transparent', color: 'var(--paper)',
+            cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M1 1L17 17M17 1L1 17" stroke="currentColor" strokeWidth="1.4"/>
+            </svg>
+          </button>
+        </div>
+      )}
+
       <style>{`
         .poi-link { transition: background 0.3s; }
         .poi-link:hover { background: rgba(245,247,246,0.06); }
         .poi-link .poi-arrow { transition: transform 0.3s, color 0.3s; }
         .poi-link:hover .poi-arrow { transform: translate(2px, -2px); color: var(--paper); }
+        .loc-lb { animation: loc-lb-fade 0.3s ease; }
+        .loc-lb-img { animation: loc-lb-zoom 0.35s cubic-bezier(.2,.7,.2,1); }
+        @keyframes loc-lb-fade { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes loc-lb-zoom {
+          from { opacity: 0; transform: scale(0.96); }
+          to   { opacity: 1; transform: scale(1); }
+        }
         @media (max-width: 980px) {
           .loc-grid { grid-template-columns: 1fr !important; }
           .loc-head { grid-template-columns: 1fr !important; gap: 32px !important; }
