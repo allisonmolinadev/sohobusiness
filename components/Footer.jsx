@@ -276,7 +276,7 @@ function Form() {
                 opacity: sending ? 0.6 : 1,
                 cursor: sending ? 'not-allowed' : 'pointer',
               }}>
-        {sending ? 'Enviando…' : <>Receber book <span className="arrow">→</span></>}
+        {sending ? 'Enviando…' : <>Cadastre-se <span className="arrow">→</span></>}
       </button>
     </form>
   );
