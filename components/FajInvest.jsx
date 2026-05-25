@@ -33,28 +33,28 @@ function FajInvest() {
             }} />
             <div style={{
               marginTop: 40,
-              display: 'flex', gap: 'clamp(32px, 5vw, 64px)',
-              flexWrap: 'wrap', alignItems: 'flex-end',
+              display: 'flex', flexDirection: 'column',
+              gap: 32, alignItems: 'flex-start',
             }}>
               <div>
-                <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 16 }}>
+                <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 14 }}>
                   — Realização
                 </div>
                 <a href="https://fajempreendimentos.com/" target="_blank" rel="noopener noreferrer"
                    style={{ display: 'inline-block' }} aria-label="FAJ Empreendimentos">
-                  <img src="assets/logo-faj-empreendimentos-branco.png" alt="FAJ Empreendimentos" style={{
-                    height: 42, width: 'auto', display: 'block',
+                  <img src="assets/logo-faj-empreendimentos-horizontal.png" alt="FAJ Empreendimentos" style={{
+                    height: 24, width: 'auto', display: 'block',
                   }} />
                 </a>
               </div>
               <div>
-                <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 16 }}>
+                <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 14 }}>
                   — Linha
                 </div>
                 <a href="https://fajinvest.com.br/" target="_blank" rel="noopener noreferrer"
                    style={{ display: 'inline-block' }} aria-label="FAJ Invest">
                   <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest" style={{
-                    height: 26, width: 'auto', display: 'block',
+                    height: 24, width: 'auto', display: 'block',
                   }} />
                 </a>
               </div>
