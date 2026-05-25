@@ -110,11 +110,22 @@ function HeroEditorial() {
 function HeroFullbleed() {
   return (
     <div style={{ position: 'relative', height: '100vh', minHeight: 680, overflow: 'hidden' }}>
-      {/* Full-bleed image */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: `url('assets/fachada-principal.jpg') center/cover no-repeat`,
-      }} />
+      {/* Full-bleed video (YouTube — nao listado) */}
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', background: '#0A0A0A' }}>
+        <iframe
+          src="https://www.youtube.com/embed/VpxxWOqdX_0?autoplay=1&mute=1&loop=1&playlist=VpxxWOqdX_0&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&disablekb=1&fs=0&cc_load_policy=0"
+          title="SoHo Business"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          frameBorder="0"
+          style={{
+            position: 'absolute', top: '50%', left: '50%',
+            width: 'max(100vw, calc(100vh * 16 / 9))',
+            height: 'max(100vh, calc(100vw * 9 / 16))',
+            transform: 'translate(-50%, -50%)',
+            pointerEvents: 'none', border: 0,
+          }}
+        />
+      </div>
 
       {/* Subtle vignette for legibility */}
       <div style={{
