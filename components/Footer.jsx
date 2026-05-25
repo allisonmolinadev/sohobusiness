@@ -93,7 +93,12 @@ function Footer() {
             ]} />
             <FCol title="Contato" items={[
               {
-                label: 'WhatsApp · 17 3211-2420',
+                label: (
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+                    <WhatsAppIcon />
+                    WhatsApp · 17 3211-2420
+                  </span>
+                ),
                 href: 'https://wa.me/551732112420?text=Ol%C3%A1!%20Tenho%20interesse%20no%20SoHo%20Business.',
                 target: '_blank',
               },
@@ -152,8 +157,8 @@ function FCol({ title, items }) {
         color: 'var(--neutral)', marginBottom: 20,
       }}>— {title}</div>
       <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
-        {items.map(it => (
-          <li key={it.label}>
+        {items.map((it, i) => (
+          <li key={i}>
             <a href={it.href}
                target={it.target || undefined}
                rel={it.target ? 'noopener noreferrer' : undefined}
