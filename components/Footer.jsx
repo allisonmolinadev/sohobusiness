@@ -96,7 +96,7 @@ function Footer() {
                 label: (
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
                     <WhatsAppIcon />
-                    WhatsApp · 17 3211-2420
+                    17 3211-2420
                   </span>
                 ),
                 href: 'https://wa.me/551732112420?text=Ol%C3%A1!%20Tenho%20interesse%20no%20SoHo%20Business.',
