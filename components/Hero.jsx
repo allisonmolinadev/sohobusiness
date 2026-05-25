@@ -127,13 +127,13 @@ function HeroFullbleed() {
         position: 'absolute', left: 0, right: 0, bottom: 0,
         padding: '0 var(--gutter) 40px',
       }}>
-        <div style={{
+        <div className="hero-bar" style={{
           maxWidth: 'var(--max)', margin: '0 auto',
           display: 'flex', justifyContent: 'space-between',
           alignItems: 'flex-end', gap: 40, flexWrap: 'wrap',
         }}>
           {/* Left: wordmark + tagline + meta */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+          <div className="hero-bar-logo" style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
             <div>
               <img src="assets/logotipo-soho-business-com-slogan.png" alt="SoHo Business" style={{
                 width: 'min(380px, 76vw)', height: 'auto',
@@ -149,6 +149,19 @@ function HeroFullbleed() {
           </a>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 860px) {
+          .hero-bar {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+          }
+          .hero-bar-logo img {
+            margin: 0 auto !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
