@@ -27,56 +27,59 @@ function Localizacao() {
           <span className="eyebrow" style={{ color: 'var(--paper)' }}>— Localização</span>
         </div>
 
-        <h2 className="display reveal" style={{
-          fontSize: 'clamp(44px, 6vw, 104px)', fontWeight: 400,
-          marginTop: 72, maxWidth: 1100,
-        }}>
-          No eixo mais<br/>
-          <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>ativo da cidade.</em>
-        </h2>
-
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)',
           gap: 'clamp(40px, 6vw, 96px)',
           marginTop: 72,
-          alignItems: 'start',
-        }} className="loc-intro reveal">
-          {/* Esquerda — proximidades */}
+          alignItems: 'stretch',
+        }} className="loc-head reveal">
+          {/* Esquerda — título + proximidades */}
           <div>
-            <div style={{
-              fontFamily: 'var(--f-mono)', fontSize: 11,
-              letterSpacing: '0.2em', textTransform: 'uppercase',
-              color: 'var(--neutral-2)',
-              marginBottom: 28,
+            <h2 className="display" style={{
+              fontSize: 'clamp(44px, 6vw, 104px)', fontWeight: 400,
             }}>
-              — Proximidades
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              <p style={{
-                fontSize: 20, lineHeight: 1.55, fontWeight: 300,
-                color: 'var(--paper)',
-              }}>
-                O SoHo Business chega para redefinir o conceito de investimento corporativo em São José do Rio Preto.
-              </p>
-              <p style={{
-                fontSize: 16, lineHeight: 1.7, fontWeight: 400,
+              No eixo mais<br/>
+              <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>ativo da cidade.</em>
+            </h2>
+
+            <div style={{ marginTop: 'clamp(56px, 7vw, 96px)' }}>
+              <div style={{
+                fontFamily: 'var(--f-mono)', fontSize: 11,
+                letterSpacing: '0.2em', textTransform: 'uppercase',
                 color: 'var(--neutral-2)',
+                marginBottom: 28,
               }}>
-                Em uma das regiões mais valorizadas da cidade, ao lado do Shopping Iguatemi e próximo aos principais eixos de acesso, o empreendimento une visibilidade, conveniência e rentabilidade.
-              </p>
-              <p style={{
-                fontSize: 16, lineHeight: 1.7, fontWeight: 400,
-                color: 'var(--neutral-2)',
-              }}>
-                Com fácil acesso pela BR-153 e Avenida Juscelino Kubitschek, o SoHo Business coloca você no ponto mais estratégico para trabalhar, investir e crescer. Mais do que um endereço comercial, é uma escolha inteligente para quem busca valor, credibilidade e potencial de retorno, com a solidez da FAJ Invest.
-              </p>
+                — Proximidades
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+                <p style={{
+                  fontSize: 20, lineHeight: 1.55, fontWeight: 300,
+                  color: 'var(--paper)',
+                }}>
+                  O SoHo Business chega para redefinir o conceito de investimento corporativo em São José do Rio Preto.
+                </p>
+                <p style={{
+                  fontSize: 16, lineHeight: 1.7, fontWeight: 400,
+                  color: 'var(--neutral-2)',
+                }}>
+                  Em uma das regiões mais valorizadas da cidade, ao lado do Shopping Iguatemi e próximo aos principais eixos de acesso, o empreendimento une visibilidade, conveniência e rentabilidade.
+                </p>
+                <p style={{
+                  fontSize: 16, lineHeight: 1.7, fontWeight: 400,
+                  color: 'var(--neutral-2)',
+                }}>
+                  Com fácil acesso pela BR-153 e Avenida Juscelino Kubitschek, o SoHo Business coloca você no ponto mais estratégico para trabalhar, investir e crescer. Mais do que um endereço comercial, é uma escolha inteligente para quem busca valor, credibilidade e potencial de retorno, com a solidez da FAJ Invest.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Direita — mapa de localização com pontos de interesse */}
+          {/* Direita — mapa de localização, alinhado de ponta a ponta com o texto */}
           <img src="assets/localizacao.jpg" alt="Mapa aéreo da região com pontos de interesse" style={{
-            width: '100%', height: 'auto', display: 'block',
+            width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center',
+            display: 'block',
           }} />
         </div>
 
@@ -172,7 +175,8 @@ function Localizacao() {
         .poi-link:hover .poi-arrow { transform: translate(2px, -2px); color: var(--paper); }
         @media (max-width: 980px) {
           .loc-grid { grid-template-columns: 1fr !important; }
-          .loc-intro { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .loc-head { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .loc-head > img { height: auto !important; object-fit: contain !important; }
         }
       `}</style>
     </section>
