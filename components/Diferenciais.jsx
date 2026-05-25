@@ -130,8 +130,8 @@ function Diferenciais() {
               Atributos que<br/>
               <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>
                 valorizam o ativo
-              </em>
-              &nbsp;no tempo.
+              </em><br/>
+              no tempo.
             </h2>
           </div>
 
