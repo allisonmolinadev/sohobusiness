@@ -6,7 +6,7 @@ function FichaTecnica() {
     { k: 'Área construída',   v: '44.443,66', un: 'm²' },
     { k: 'Total de unidades', v: '415',       un: 'salas comerciais' },
     { k: 'Torres',            v: '1',         un: 'torre exclusiva' },
-    { k: 'Total de vagas',    v: '495',       un: 'vagas de estacionamento' },
+    { k: 'Total de vagas',    v: '611',       un: 'vagas de estacionamento' },
   ];
 
   return (
