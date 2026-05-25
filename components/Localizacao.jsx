@@ -35,16 +35,12 @@ function Localizacao() {
           <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral-2)' }}>ativo da cidade.</em>
         </h2>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.2fr)',
-          gap: 'clamp(40px, 6vw, 120px)',
-          marginTop: 72,
-        }} className="loc-intro reveal">
+        <div style={{ marginTop: 72 }} className="loc-intro reveal">
           <div style={{
             fontFamily: 'var(--f-mono)', fontSize: 11,
             letterSpacing: '0.2em', textTransform: 'uppercase',
             color: 'var(--neutral-2)',
+            marginBottom: 28,
           }}>
             — Proximidades
           </div>
@@ -162,7 +158,6 @@ function Localizacao() {
         .poi-link:hover .poi-arrow { transform: translate(2px, -2px); color: var(--paper); }
         @media (max-width: 980px) {
           .loc-grid { grid-template-columns: 1fr !important; }
-          .loc-intro { grid-template-columns: 1fr !important; gap: 24px !important; }
         }
       `}</style>
     </section>
