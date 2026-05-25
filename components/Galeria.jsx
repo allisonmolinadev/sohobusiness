@@ -94,7 +94,7 @@ function Galeria() {
     <section id="galeria" style={{
       background: 'var(--ink)',
       color: 'var(--paper)',
-      padding: '160px 0 120px',
+      padding: '160px 0 60px',
     }} ref={carouselRef}
        onMouseEnter={() => setAutoplay(false)}
        onMouseLeave={() => setAutoplay(true)}>
@@ -233,20 +233,6 @@ function Galeria() {
             );
           })}
         </div>
-      </div>
-
-      {/* Rodapé da seção */}
-      <div style={{
-        maxWidth: 'var(--max)', margin: '40px auto 0',
-        padding: '0 var(--gutter)',
-        display: 'flex', justifyContent: 'space-between',
-        borderTop: '1px solid rgba(245,247,246,0.12)', paddingTop: 20,
-        fontFamily: 'var(--f-mono)', fontSize: 10,
-        letterSpacing: '0.18em', textTransform: 'uppercase',
-        color: 'var(--neutral)', flexWrap: 'wrap', gap: 12,
-      }} className="reveal">
-        <span>— {pad(images.length)} imagens</span>
-        <span>Imagens preliminares · sujeitas a alterações</span>
       </div>
 
       {/* Lightbox — imagem ampliada */}
