@@ -210,7 +210,7 @@ function Diferenciais() {
         }
         @media (max-width: 980px) {
           .dif-head { grid-template-columns: 1fr !important; gap: 40px !important; }
-          .dif-head > img { height: auto !important; aspect-ratio: 16 / 11; }
+          .dif-head > img { height: auto !important; aspect-ratio: auto !important; object-fit: contain !important; }
           .dif-grid { grid-template-columns: 1fr !important; }
           .dif-cell {
             border-right: none !important;
