@@ -92,9 +92,16 @@ function Footer() {
               { label: 'Termos de uso', href: '#' },
             ]} />
             <FCol title="Contato" items={[
-              { label: 'contato@sohobusiness.com.br', href: '#' },
-              { label: '+55 (XX) XXXX-XXXX', href: '#' },
-              { label: 'Endereço da obra', href: '#' },
+              {
+                label: 'WhatsApp · 17 3211-2420',
+                href: 'https://wa.me/551732112420?text=Ol%C3%A1!%20Tenho%20interesse%20no%20SoHo%20Business.',
+                target: '_blank',
+              },
+              {
+                label: 'R. Cândido Carneiro, 626 — Vila Bom Jesus, São José do Rio Preto — SP, 15014-200',
+                href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('R. Cândido Carneiro, 626 - Vila Bom Jesus, São José do Rio Preto - SP, 15014-200')}`,
+                target: '_blank',
+              },
             ]} />
           </div>
 
@@ -147,9 +154,12 @@ function FCol({ title, items }) {
       <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
         {items.map(it => (
           <li key={it.label}>
-            <a href={it.href} style={{
+            <a href={it.href}
+               target={it.target || undefined}
+               rel={it.target ? 'noopener noreferrer' : undefined}
+               style={{
               color: 'var(--paper)', textDecoration: 'none',
-              fontSize: 14, opacity: 0.8,
+              fontSize: 14, opacity: 0.8, lineHeight: 1.5,
               transition: 'opacity 0.3s',
             }} onMouseEnter={e => e.currentTarget.style.opacity = 1}
                onMouseLeave={e => e.currentTarget.style.opacity = 0.8}>
