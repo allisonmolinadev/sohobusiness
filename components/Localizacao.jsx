@@ -174,7 +174,8 @@ function Localizacao() {
             }}>
               <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 8 }}>— Endereço</div>
               <div style={{ fontSize: 16, lineHeight: 1.5, color: 'var(--paper)' }}>
-                São José do Rio Preto — SP
+                Avenida José Trefiglio — Reservas do Sul<br/>
+                <span style={{ color: 'var(--neutral-2)' }}>São José do Rio Preto — SP</span>
               </div>
               <a href="https://maps.app.goo.gl/RVznptrp7PKdsbAY6" target="_blank" rel="noopener noreferrer"
                  className="btn on-dark" style={{ marginTop: 28 }}>
