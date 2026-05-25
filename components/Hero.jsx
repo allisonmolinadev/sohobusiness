@@ -119,6 +119,7 @@ function HeroVideo() {
     const buildPlayer = () => {
       if (cancelled || !containerRef.current) return;
       player = new window.YT.Player(containerRef.current, {
+        host: 'https://www.youtube-nocookie.com',
         height: '100%',
         width: '100%',
         videoId: 'VpxxWOqdX_0',
@@ -143,10 +144,13 @@ function HeroVideo() {
             }, 200);
           },
           onStateChange: (e) => {
+            // Se algo pausar o video, retoma imediatamente
+            if (e.data === 2) { // PAUSED
+              try { e.target.playVideo(); } catch (err) {}
+            }
             // Fallback — se ainda chegar ao fim, volta pro inicio
-            if (e.data === 0) {
-              e.target.seekTo(0, true);
-              e.target.playVideo();
+            if (e.data === 0) { // ENDED
+              try { e.target.seekTo(0, true); e.target.playVideo(); } catch (err) {}
             }
           },
         },
