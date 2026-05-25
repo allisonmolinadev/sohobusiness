@@ -21,7 +21,7 @@ function Localizacao() {
     `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(ORIGEM)}&destination=${encodeURIComponent(destino)}`;
 
   const pois = [
-    { name: 'SoHo Business',     tipo: 'Empreendimento', dist: '—',       link: 'https://maps.app.goo.gl/RVznptrp7PKdsbAY6' },
+    { name: 'SoHo Business',     tipo: 'Empreendimento', dist: 'aqui',    link: 'https://maps.app.goo.gl/RVznptrp7PKdsbAY6' },
     { name: 'Shopping Iguatemi', tipo: 'Comércio',       dist: '~1,1 km', link: rota('Shopping Iguatemi São José do Rio Preto') },
     { name: 'Rodovia BR-153',    tipo: 'Via expressa',   dist: '~1,2 km', link: 'https://maps.app.goo.gl/HYK1zg5JALfYjLCNA' },
     { name: 'Avenida JK',        tipo: 'Via arterial',   dist: '~4,6 km', link: rota('JK Avenue São José do Rio Preto') },
@@ -39,7 +39,7 @@ function Localizacao() {
           borderTop: '1px solid rgba(245,247,246,0.15)', paddingTop: 24,
         }} className="reveal">
           <span style={{ fontFamily: 'var(--f-mono)', fontSize: 11, letterSpacing: '0.2em', color: 'var(--neutral)' }}>04</span>
-          <span className="eyebrow" style={{ color: 'var(--paper)' }}>— Localização</span>
+          <span className="eyebrow" style={{ color: 'var(--paper)' }}>Localização</span>
         </div>
 
         <div style={{
@@ -65,7 +65,7 @@ function Localizacao() {
                 color: 'var(--neutral-2)',
                 marginBottom: 28,
               }}>
-                — Proximidades
+                Proximidades
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                 <p style={{
@@ -130,7 +130,7 @@ function Localizacao() {
               color: 'var(--neutral)',
               display: 'flex', justifyContent: 'space-between',
             }}>
-              <span>— Pontos de interesse</span>
+              <span>Pontos de interesse</span>
               <span>{String(pois.length).padStart(2, '0')}</span>
             </div>
 
@@ -151,7 +151,7 @@ function Localizacao() {
                       fontFamily: 'var(--f-mono)', fontSize: 10,
                       letterSpacing: '0.2em', textTransform: 'uppercase',
                       color: 'var(--neutral)', marginBottom: 6,
-                    }}>— {String(i+1).padStart(2, '0')} · {p.tipo}</div>
+                    }}>{String(i+1).padStart(2, '0')} · {p.tipo}</div>
                     <div style={{ fontSize: 18, fontWeight: 500, letterSpacing: '-0.01em' }}>{p.name}</div>
                   </div>
                   <div style={{
@@ -172,10 +172,10 @@ function Localizacao() {
               marginTop: 32, padding: '20px 0',
               borderTop: '1px solid rgba(245,247,246,0.15)',
             }}>
-              <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 8 }}>— Endereço</div>
+              <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 8 }}>Endereço</div>
               <div style={{ fontSize: 16, lineHeight: 1.5, color: 'var(--paper)' }}>
-                Avenida José Trefiglio — Reservas do Sul<br/>
-                <span style={{ color: 'var(--neutral-2)' }}>São José do Rio Preto — SP</span>
+                Avenida José Trefiglio · Reservas do Sul<br/>
+                <span style={{ color: 'var(--neutral-2)' }}>São José do Rio Preto · SP</span>
               </div>
               <a href="https://maps.app.goo.gl/RVznptrp7PKdsbAY6" target="_blank" rel="noopener noreferrer"
                  className="btn on-dark" style={{ marginTop: 28 }}>

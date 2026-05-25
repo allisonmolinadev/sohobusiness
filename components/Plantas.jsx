@@ -2,8 +2,8 @@
 function Plantas() {
   const salas = [
     { src: 'assets/sala-01.jpg',       label: 'Sala tipo' },
-    { src: 'assets/sala-02.jpg',       label: 'Sala — escritório' },
-    { src: 'assets/sala-dentista.jpg', label: 'Sala — consultório' },
+    { src: 'assets/sala-02.jpg',       label: 'Sala · escritório' },
+    { src: 'assets/sala-dentista.jpg', label: 'Sala · consultório' },
   ];
   // Lista duplicada para o loop contínuo do marquee
   const loop = [...salas, ...salas];

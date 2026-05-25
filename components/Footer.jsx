@@ -103,7 +103,7 @@ function Footer() {
                 target: '_blank',
               },
               {
-                label: 'R. Cândido Carneiro, 626 — Vila Bom Jesus, São José do Rio Preto — SP, 15014-200',
+                label: 'R. Cândido Carneiro, 626 · Vila Bom Jesus, São José do Rio Preto · SP, 15014-200',
                 href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('R. Cândido Carneiro, 626 - Vila Bom Jesus, São José do Rio Preto - SP, 15014-200')}`,
                 target: '_blank',
               },
@@ -118,7 +118,7 @@ function Footer() {
             color: 'var(--neutral)',
           }}>
             <span>© 2026 FAJ Invest · Todos os direitos reservados</span>
-            <span>Perspectiva artística — imagens ilustrativas</span>
+            <span>Perspectiva artística · imagens ilustrativas</span>
           </div>
         </div>
 
@@ -155,7 +155,7 @@ function FCol({ title, items }) {
     <div>
       <div className="eyebrow" style={{
         color: 'var(--neutral)', marginBottom: 20,
-      }}>— {title}</div>
+      }}>{title}</div>
       <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
         {items.map((it, i) => (
           <li key={i}>

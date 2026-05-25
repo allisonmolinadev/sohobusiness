@@ -20,7 +20,7 @@ function FajInvest() {
             }}>
               <div>
                 <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 14 }}>
-                  — Realização
+                  Realização
                 </div>
                 <a href="https://fajempreendimentos.com/" target="_blank" rel="noopener noreferrer"
                    style={{ display: 'block', width: 'min(340px, 100%)' }} aria-label="FAJ Empreendimentos">
@@ -31,7 +31,7 @@ function FajInvest() {
               </div>
               <div>
                 <div className="eyebrow" style={{ color: 'var(--neutral)', marginBottom: 14 }}>
-                  — Linha
+                  Linha
                 </div>
                 <a href="https://fajinvest.com.br/" target="_blank" rel="noopener noreferrer"
                    style={{ display: 'block', width: 'min(220px, 100%)' }} aria-label="FAJ Invest">

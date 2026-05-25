@@ -57,7 +57,7 @@ function Diferenciais() {
       n: '01',
       icon: difIcons.local,
       title: 'Localização consolidada',
-      body: 'Implantação em uma das regiões mais maduras e valorizadas da cidade — com infraestrutura de serviços, transporte e mobilidade plenamente estabelecidos.',
+      body: 'Implantação em uma das regiões mais maduras e valorizadas da cidade, com infraestrutura de serviços, transporte e mobilidade plenamente estabelecidos.',
     },
     {
       n: '02',
@@ -69,7 +69,7 @@ function Diferenciais() {
       n: '03',
       icon: difIcons.loja,
       title: 'Térreo ativado',
-      body: 'Pavimento térreo com usos comerciais, café e lobby assinado — gerando fluxo e convivência no entorno imediato do edifício.',
+      body: 'Pavimento térreo com usos comerciais, café e lobby assinado, gerando fluxo e convivência no entorno imediato do edifício.',
     },
     {
       n: '04',
@@ -87,7 +87,7 @@ function Diferenciais() {
       n: '06',
       icon: difIcons.rooftop,
       title: 'Rooftop corporativo',
-      body: 'Terraço panorâmico com sala de reuniões de uso coletivo, copa de apoio e lounge — disponível a todos os condôminos.',
+      body: 'Terraço panorâmico com sala de reuniões de uso coletivo, copa de apoio e lounge, disponível a todos os condôminos.',
     },
   ];
 
@@ -119,7 +119,7 @@ function Diferenciais() {
                 letterSpacing: '0.2em', color: 'var(--neutral)',
               }}>02</span>
               <span className="eyebrow" style={{ color: 'var(--paper)' }}>
-                — Diferenciais e amenidades
+                Diferenciais e amenidades
               </span>
             </div>
             <h2 className="display" style={{
@@ -164,7 +164,7 @@ function Diferenciais() {
                 fontSize: 11, letterSpacing: '0.2em',
                 color: 'var(--neutral)',
                 marginBottom: 14,
-              }}>— {it.n}</div>
+              }}>{it.n}</div>
               <h3 className="dif-title" style={{
                 fontFamily: 'var(--f-display)',
                 fontSize: 24, fontWeight: 500,

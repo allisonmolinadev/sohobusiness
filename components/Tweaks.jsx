@@ -19,7 +19,7 @@ function Tweaks({ tweaks, onUpdate }) {
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         marginBottom: 20,
       }}>
-        <span className="eyebrow" style={{ color: 'var(--paper)' }}>— Tweaks</span>
+        <span className="eyebrow" style={{ color: 'var(--paper)' }}>Tweaks</span>
         <span className="eyebrow" style={{ color: 'var(--neutral)' }}>Hero</span>
       </div>
 

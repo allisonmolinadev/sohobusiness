@@ -84,7 +84,7 @@ function HeroEditorial() {
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
           }}>
-            — 21 pavimentos · 415 unidades
+            21 pavimentos · 415 unidades
           </div>
         </div>
       </div>
@@ -212,7 +212,7 @@ function HeroTypographic() {
     }}>
       <div style={{ maxWidth: 'var(--max)', margin: '0 auto', width: '100%' }}>
         <div className="eyebrow" style={{ color: 'var(--neutral-2)', marginBottom: 24 }}>
-          — FAJ Invest apresenta
+          FAJ Invest apresenta
         </div>
 
         <h1 className="display" style={{
@@ -287,7 +287,7 @@ function MetaStrip() {
     { k: 'Tipologia',   v: 'Salas comerciais' },
     { k: 'Pavimentos',  v: '21' },
     { k: 'Unidades',    v: '415 salas' },
-    { k: 'Localização', v: 'São José do Rio Preto — SP' },
+    { k: 'Localização', v: 'São José do Rio Preto · SP' },
     { k: 'Entrega',     v: 'Q4 2028' },
   ];
   return (

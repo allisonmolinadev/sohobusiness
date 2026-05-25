@@ -140,7 +140,7 @@ function SectionLabel({ num, label }) {
         color: 'var(--neutral)',
       }}>{num}</span>
       <span className="eyebrow" style={{ color: 'var(--ink)' }}>
-        — {label}
+        {label}
       </span>
     </div>
   );

@@ -21,7 +21,7 @@ function FichaTecnica() {
           borderTop: '1px solid rgba(245,247,246,0.15)', paddingTop: 24,
         }} className="reveal">
           <span style={{ fontFamily: 'var(--f-mono)', fontSize: 11, letterSpacing: '0.2em', color: 'var(--neutral)' }}>05</span>
-          <span className="eyebrow" style={{ color: 'var(--paper)' }}>— Ficha técnica</span>
+          <span className="eyebrow" style={{ color: 'var(--paper)' }}>Ficha técnica</span>
         </div>
 
         <div style={{
@@ -69,7 +69,7 @@ function FichaTecnica() {
           color: 'var(--neutral)', flexWrap: 'wrap', gap: 12,
           borderTop: '1px solid rgba(245,247,246,0.12)', paddingTop: 20,
         }} className="reveal">
-          <span>— Informações preliminares</span>
+          <span>Informações preliminares</span>
           <span>Sujeitas a alterações conforme aprovação dos órgãos competentes</span>
         </div>
       </div>
@@ -97,7 +97,7 @@ function FichaRow({ k, v, un, idx }) {
         letterSpacing: '0.22em', textTransform: 'uppercase',
         color: 'var(--neutral)',
       }}>
-        — {String(idx).padStart(2,'0')} · {k}
+        {String(idx).padStart(2,'0')} · {k}
       </div>
       <div style={{
         display: 'flex', alignItems: 'baseline', gap: 8,

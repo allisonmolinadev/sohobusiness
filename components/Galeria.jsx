@@ -3,22 +3,22 @@ function Galeria() {
   const images = [
     { src: 'assets/drone-sunset.jpg',    label: 'Vista aérea',        caption: 'Implantação ao pôr do sol' },
     { src: 'assets/acesso-fachada.jpg',  label: 'Acesso principal',   caption: 'Entrada pelo passeio ajardinado' },
-    { src: 'assets/acesso-fachada-2.jpg',label: 'Acesso — volumetria',caption: 'Composição de fachada e acesso de veículos' },
+    { src: 'assets/acesso-fachada-2.jpg',label: 'Acesso · volumetria',caption: 'Composição de fachada e acesso de veículos' },
     { src: 'assets/fachada-2.jpg',       label: 'Fachada frontal',    caption: '21 pavimentos · fachada em vidro e alumínio' },
     { src: 'assets/fachada-lateral.jpg', label: 'Fachada lateral',    caption: 'Volume térreo em pele metálica branca' },
     { src: 'assets/fachada-secundaria.jpg', label: 'Fachada secundária', caption: 'Acesso secundário com tratamento paisagístico' },
     { src: 'assets/drone-01.jpg',        label: 'Vista diurna',       caption: 'Implantação no contexto do bairro' },
     { src: 'assets/drone-02.jpg',        label: 'Vista aproximada',   caption: 'Ângulo sudoeste' },
     { src: 'assets/hall-01.jpg',         label: 'Hall principal',     caption: 'Recepção com revestimentos nobres' },
-    { src: 'assets/hall-02.jpg',         label: 'Hall — lounge',      caption: 'Espaço de espera com curadoria artística' },
-    { src: 'assets/hall-03.jpg',         label: 'Hall — estar',       caption: 'Ambiente de convivência' },
+    { src: 'assets/hall-02.jpg',         label: 'Hall · lounge',      caption: 'Espaço de espera com curadoria artística' },
+    { src: 'assets/hall-03.jpg',         label: 'Hall · estar',       caption: 'Ambiente de convivência' },
     { src: 'assets/praca-01.jpg',        label: 'Praça comercial',    caption: 'Térreo ativado com espelho d’água' },
     { src: 'assets/praca-02.jpg',        label: 'Passarela',          caption: 'Eixo de circulação externo' },
     { src: 'assets/praca-03.jpg',        label: 'Galeria externa',    caption: 'Cobertura com vegetação suspensa' },
     { src: 'assets/praca-04.jpg',        label: 'Passeio comercial',  caption: 'Vista interna dos acessos' },
     { src: 'assets/sala-01.jpg',         label: 'Sala tipo',          caption: 'Layout corporativo sugerido' },
-    { src: 'assets/sala-02.jpg',         label: 'Sala tipo — trabalho',caption: 'Configuração para escritório tradicional' },
-    { src: 'assets/sala-dentista.jpg',   label: 'Sala — saúde',       caption: 'Configuração para consultório' },
+    { src: 'assets/sala-02.jpg',         label: 'Sala tipo · trabalho',caption: 'Configuração para escritório tradicional' },
+    { src: 'assets/sala-dentista.jpg',   label: 'Sala · saúde',       caption: 'Configuração para consultório' },
   ];
 
   const [idx, setIdx] = React.useState(0);
@@ -114,7 +114,7 @@ function Galeria() {
             letterSpacing: '0.2em', color: 'var(--neutral)',
           }}>03</span>
           <span className="eyebrow" style={{ color: 'var(--paper)' }}>
-            — Galeria
+            Galeria
           </span>
         </div>
 
