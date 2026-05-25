@@ -21,8 +21,8 @@ function Sobre() {
               fontSize: 'clamp(34px, 3.6vw, 58px)',
               fontWeight: 400,
             }}>
-              Seu negócio<br/>
-              e seu <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral)' }}>investimento.</em>
+              Eleve o padrão<br/>
+              <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--neutral)' }}>do seu</em> negócio.
             </h2>
             <div style={{
               marginTop: 48,
