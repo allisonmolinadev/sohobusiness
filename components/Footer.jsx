@@ -87,9 +87,9 @@ function Footer() {
               { label: 'Tipologias', href: '#plantas' },
             ]} />
             <FCol title="Institucional" items={[
-              { label: 'FAJ Invest', href: '#faj' },
-              { label: 'Política de privacidade', href: '#' },
-              { label: 'Termos de uso', href: '#' },
+              { label: 'FAJ Invest', href: 'https://fajinvest.com.br/', target: '_blank' },
+              { label: 'Política de privacidade', href: 'https://fajinvest.com.br/politica-de-privacidade/', target: '_blank' },
+              { label: 'Termos de uso', href: 'https://fajinvest.com.br/termos-de-uso/', target: '_blank' },
             ]} />
             <FCol title="Contato" items={[
               {
