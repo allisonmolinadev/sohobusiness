@@ -95,7 +95,7 @@ function Localizacao() {
             onClick={() => setMapaOpen(true)}
             style={{
               width: '100%', height: '100%',
-              objectFit: 'cover', objectPosition: 'center',
+              objectFit: 'contain', objectPosition: 'center',
               display: 'block', cursor: 'zoom-in',
             }} />
         </div>
