@@ -23,7 +23,7 @@ function Localizacao() {
   const pois = [
     { name: 'SoHo Business',     tipo: 'Empreendimento', dist: '—',       link: 'https://maps.app.goo.gl/RVznptrp7PKdsbAY6' },
     { name: 'Shopping Iguatemi', tipo: 'Comércio',       dist: '~1,1 km', link: rota('Shopping Iguatemi São José do Rio Preto') },
-    { name: 'Hotel Hyatt Place', tipo: 'Hotelaria',      dist: '~1,1 km', link: rota('Hyatt Place São José do Rio Preto') },
+    { name: 'Rodovia BR-153',    tipo: 'Via expressa',   dist: '~1,2 km', link: 'https://maps.app.goo.gl/HYK1zg5JALfYjLCNA' },
     { name: 'Avenida JK',        tipo: 'Via arterial',   dist: '~4,6 km', link: rota('JK Avenue São José do Rio Preto') },
   ];
 
