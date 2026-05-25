@@ -227,7 +227,7 @@ function Form() {
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       // Sucesso — redireciona para a página de obrigado
-      window.location.href = 'obrigado.html';
+      window.location.href = 'obrigado/';
       return;
     } catch (err) {
       setError('Não foi possível enviar agora. Tente novamente em instantes.');
