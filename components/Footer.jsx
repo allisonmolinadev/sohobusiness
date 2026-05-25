@@ -113,7 +113,12 @@ function Footer() {
         <style>{`
           @media (max-width: 860px) {
             .foot-grid { grid-template-columns: 1fr !important; }
-            .cta-grid { grid-template-columns: 1fr !important; align-items: start !important; }
+            .cta-grid {
+              grid-template-columns: 1fr !important;
+              align-items: start !important;
+            }
+            .cta-grid > div { order: 1; }
+            .cta-grid > img { order: 2; }
           }
         `}</style>
       </footer>
