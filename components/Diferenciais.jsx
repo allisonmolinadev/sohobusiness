@@ -136,7 +136,7 @@ function Diferenciais() {
           </div>
 
           {/* Direita — fachada alinhada de ponta a ponta */}
-          <img src="assets/fachada-estilizada.png" alt="Fachada do empreendimento" style={{
+          <img src="assets/fachada-2-square.jpg" alt="Fachada do empreendimento" style={{
             width: '100%', height: '100%',
             objectFit: 'cover', objectPosition: 'center',
             display: 'block',
