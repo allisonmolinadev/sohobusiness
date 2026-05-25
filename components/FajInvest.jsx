@@ -28,11 +28,7 @@ function FajInvest() {
           marginTop: 80, alignItems: 'start',
         }} className="faj-grid reveal">
           <div>
-            <img src="assets/logo-faj-invest-branco.png" alt="FAJ Invest" style={{
-              width: 'min(340px, 80%)', height: 'auto', display: 'block',
-            }} />
             <div style={{
-              marginTop: 40,
               display: 'flex', flexDirection: 'column',
               gap: 32, alignItems: 'flex-start',
             }}>
